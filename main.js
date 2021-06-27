@@ -35,7 +35,7 @@ client.on('ready', () =>{
         status: 'idle',
         activity: {
             name: `.gg/moonxile!`,
-            type: 'WATCHING'
+            type: 'LISTENING'
         }
     })
 });
