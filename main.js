@@ -34,8 +34,8 @@ client.on('ready', () =>{
     client.user.setPresence({
         status: 'idle',
         activity: {
-            name: `.gg/moonxile!`,
-            type: 'LISTENING'
+            name: `${client.users.cache.size} users in .gg/moonxile!`,
+            type: 'WATCHING'
         }
     })
 });
