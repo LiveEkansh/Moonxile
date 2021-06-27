@@ -3,6 +3,9 @@ module.exports = {
     args: true,
     usage: '<number>',
     execute(client, message, args, Discord){
+        if(!message.member.hasPermission('MANAGE_MESSAGES')){
+            return message.reply('Missing Permissions `MANAGE_MESSAGES`')
+        };
         const num = parseInt(args[0]);
         if(num < 1 || num > 100){
             return message.channel.send('Cannot clear messages less than `1` and more than `100`')
@@ -18,5 +21,9 @@ module.exports = {
         .catch(console.error);
 
         message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` messages cleared!`)
+        .then(message =>{
+            message.delete({ timeout: 3000 })
+        })
+        .catch(console.error);
     }
 }
