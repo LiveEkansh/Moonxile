@@ -15,9 +15,8 @@ module.exports = {
         const number = num + 1;
 
         message.channel.bulkDelete(parseInt(number), true)
-        .then(ch =>{
-            ch.send(`<a:mx_check:858745251305226270> \`${num}\` messages cleared!`)
-        })
-        .catch(console.error)
+        .catch(console.error);
+
+        message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` messages cleared!`)
     }
 }
