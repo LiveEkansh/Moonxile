@@ -1,4 +1,4 @@
-const db = require('../../models/c-schema');
+const db = require('../models/c-schema');
 const moment = require('moment');
 
 module.exports = {
