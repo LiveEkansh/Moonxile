@@ -1,0 +1,18 @@
+{
+  "name": "moonxile-bot",
+  "version": "1.0.0",
+  "description": "Moonxile Bot",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Ninja",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "fs": "0.0.1-security",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.14",
+    "y": "^0.3.2"
+  }
+}
