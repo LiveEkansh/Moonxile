@@ -32,8 +32,6 @@ module.exports = {
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             };
-            const donates = parseInt(data.content.length);
-            module.exports.donation = donates;
         })
     }
 }
