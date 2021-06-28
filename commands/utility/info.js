@@ -5,6 +5,8 @@ module.exports = {
     execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
+        const { donation } = require('../server/donations');
+
         var DefaultTime = 10;
         var support = 0;
         var donate = 0;
@@ -17,7 +19,7 @@ module.exports = {
         }
     
         if (userRoles.includes("୨・donator")) {
-          donate = 5;
+          donate = 5 * donation;
         }
         
         if (userRoles.includes("୨・booster")) {

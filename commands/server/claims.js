@@ -21,7 +21,7 @@ module.exports = {
                         )
                     )
                     .setColor("00ffcc")
-                    .setTimestamp()
+                    .setFooter(`${data.content.length} claims`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             } else if (!data){
@@ -29,10 +29,12 @@ module.exports = {
                 .setTitle(`${member.user.tag}'s Claims`)
                 .setDescription(`**No Data Found**`)
                 .setColor('00ffcc')
-                .setTimestamp()
+                .setFooter(`${data.content.length} claims`, message.guild.iconURL({ dynamic: true }))
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             }
-        })
+            const claimed = data.content.length;
+            module.exports.claimed = claimed;
+        });
     }
 }

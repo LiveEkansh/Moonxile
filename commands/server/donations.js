@@ -30,8 +30,11 @@ module.exports = {
                 .setDescription(`**No Data Found**`)
                 .setColor('00ffcc')
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
+                .setFooter(`${data.content.length} donations`, message.guild.iconURL({ dynamic: true }))
                 )
             }
+            const donation = data.content.length;
+            module.exports.donation = donation;
         })
     }
 }
