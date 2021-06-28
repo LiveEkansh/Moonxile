@@ -2,7 +2,7 @@ module.exports = {
     name: 'purge',
     args: true,
     usage: '<number>',
-    execute(client, message, args, Discord){
+    async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.reply('Missing Permissions `MANAGE_MESSAGES`')
         };
@@ -17,13 +17,11 @@ module.exports = {
 
         const number = num + 1;
 
-        message.channel.messages.cache.fetch({ limit: number })
-        .then(fetched =>{
-            const notPin = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
-
-            message.channel.bulkDelete(parseInt(notPin), true)
-            .catch(console.error);
-        });
+        await message.channel.bulkDelete(
+            (await message.channel.messages.fetch({ limit: number }))
+            .filter(m => !m.pinned)
+            .catch(console.error)
+        )
         // message.channel.bulkDelete(parseInt(number), true)
         // .catch(console.error);
 
