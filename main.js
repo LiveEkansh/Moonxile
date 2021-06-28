@@ -46,7 +46,7 @@ client.on('message', message =>{
 
         module.exports.author = author;
     }
-    if(message.content.startsWith('🎉 The new winner is ') || message.content.startsWith('Congratulations ')){
+    if(message.content.startsWith('🎉 The new winner is ') || message.content.startsWith('Congratulations ') || message.content.startsWith('**Congratulations ')){
         if(!message.author.bot) return;
         client.commands.get('thegiveawaybotmsg').execute(client, message, Discord);
     };
