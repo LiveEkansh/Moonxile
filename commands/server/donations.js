@@ -23,6 +23,7 @@ module.exports = {
                     .setColor("00ffcc")
                     .setTimestamp()
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
+                    .setFooter(`${data.length} donations`, message.guild.iconURL({ dynamic: true }))
                 )
             } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
