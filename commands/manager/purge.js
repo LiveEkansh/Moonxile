@@ -20,8 +20,7 @@ module.exports = {
         await message.channel.bulkDelete(
             (await message.channel.messages.fetch({ limit: number }))
             .filter(m => !m.pinned)
-            .catch(console.error)
-        )
+        ).catch(console.error)
         // message.channel.bulkDelete(parseInt(number), true)
         // .catch(console.error);
 
