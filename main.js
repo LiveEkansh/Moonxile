@@ -66,6 +66,7 @@ client.on('message', message =>{
     if(command) command.execute(client, message, args, Discord);
 
     if(cmd.length == 0) return;
+    if(cmd.includes(prefix)) return;
     if(!command){
         return message.reply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
