@@ -1,22 +1,18 @@
 const moment = require('moment');
-const db = require('../models/d-schema');
 
 module.exports = {
     name: 'info',
     async execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
-        const db = require('./commands/models/d-schema');
+        const db = require('../models/d-schema');
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data)=>{
             if(err) throw err;
             if(data){
               const donates = parseInt(data.content.length);
-
-              module.exports.donates = donates;
             }
           })
 
-        const { donates } 
         var DefaultTime = 10;
         var support = 0;
         var donate = 0;
