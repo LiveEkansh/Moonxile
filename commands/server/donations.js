@@ -22,7 +22,7 @@ module.exports = {
                     )
                     .setColor("00ffcc")
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
-                    .setFooter(`${data.content.length} donations`, message.guild.iconURL({ dynamic: true }))
+                    .setFooter(`${data.content.length} donation(s)`, message.guild.iconURL({ dynamic: true }))
                 )
             } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
@@ -30,7 +30,7 @@ module.exports = {
                 .setDescription(`**No Data Found**`)
                 .setColor('00ffcc')
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
-                .setFooter(`${data.content.length} donations`, message.guild.iconURL({ dynamic: true }))
+                
                 )
             }
             const donation = data.content.length;

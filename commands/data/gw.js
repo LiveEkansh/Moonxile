@@ -4,6 +4,8 @@ module.exports = {
     execute(client, message){
 
       const { author } = require('./../../main');
+      const { donation } = require('../server/donations');
+      const donated = parseInt(donation) * 5;
   
       let winner = message.mentions.members.first();
   
@@ -19,7 +21,7 @@ module.exports = {
       }
   
       if (userRoles.includes("୨・donator")) {
-        donate = 5;
+        donate = donated;
       }
       
       if (userRoles.includes("୨・booster")) {
@@ -37,5 +39,8 @@ module.exports = {
             message.channel.send(`${TotalTime} seconds up!`);
           }, TotalTime * 1000);
         });
+      if(userRoles.includes("୨・claimed")){
+        return message.channel.send(`${winner.user.tag} has already claimed! Check \`;;claims ${winner.id}\`.`)
+      }
     },
   };
