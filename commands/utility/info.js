@@ -4,12 +4,12 @@ module.exports = {
     name: 'info',
     async execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-
+        let donates;
         const db = require('../models/d-schema');
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data)=>{
             if(err) throw err;
             if(data){
-              const donates = parseInt(data.content.length);
+              donates = parseInt(data.content.length);
             }
           })
 
