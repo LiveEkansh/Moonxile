@@ -1,13 +1,22 @@
 const moment = require('moment');
+const db = require('../models/d-schema');
 
 module.exports = {
     name: 'info',
-    execute(client, message, args, Discord){
+    async execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
-        const { donates } = require('../server/donations');
-        const donated = parseInt(donates);
+        const db = require('./commands/models/d-schema');
+        db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data)=>{
+            if(err) throw err;
+            if(data){
+              const donates = parseInt(data.content.length);
 
+              module.exports.donates = donates;
+            }
+          })
+
+        const { donates } 
         var DefaultTime = 10;
         var support = 0;
         var donate = 0;
@@ -20,7 +29,7 @@ module.exports = {
         }
     
         if (userRoles.includes("୨・donator")) {
-          donate = donated * 5;
+          donate = donates * 5;
         }
         
         if (userRoles.includes("୨・booster")) {
