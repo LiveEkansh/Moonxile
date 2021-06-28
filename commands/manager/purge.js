@@ -24,7 +24,7 @@ module.exports = {
         // message.channel.bulkDelete(parseInt(number), true)
         // .catch(console.error);
 
-        message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` messages cleared!`)
+        message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` message(s) cleared!`)
         .then(message =>{
             message.delete({ timeout: 3000 })
         })

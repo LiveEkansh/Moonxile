@@ -39,11 +39,7 @@ module.exports = {
 
             {name: 'Joined', value: `${moment.utc(member.joinedAt).format("MMMM Do YYYY")}`, inline: true},
             {name: 'Created', value: `${moment.utc(member.user.createdAt).format("MMMM Do YYYY")}`, inline: true},
-            {name: '\u200b', value: '\u200b', inline: true},
-
-            {name: 'Roles', value: `${member.roles.cache.map(roles => `${roles}`).join(', ')}`, inline: true},
-            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true},
-            {name: '\u200b', value: '\u200b', inline: true}
+            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true}
         )
 
         .setFooter(`ID : ${member.user.id}`)
