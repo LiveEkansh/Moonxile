@@ -9,7 +9,7 @@ module.exports = {
 
         var DefaultTime = 10;
         var support = 0;
-        var donate = parseInt(donation) * 5;
+        var donate = 0;
         var boost = 0;
        
         const userRoles = member.roles.cache.map((r) => r.name);
@@ -18,9 +18,9 @@ module.exports = {
           support = 3;
         }
     
-        // if (userRoles.includes("୨・donator")) {
-        //   donate = 5;
-        // }
+        if (userRoles.includes("୨・donator")) {
+          donate = (parseInt(donation) * 5);
+        }
         
         if (userRoles.includes("୨・booster")) {
           boost = 10;
