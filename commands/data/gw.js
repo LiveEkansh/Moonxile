@@ -5,7 +5,7 @@ module.exports = {
 
       const { author } = require('./../../main');
       const { donates } = require('../server/donations');
-      const donated = parseInt(donates) * 5;
+      const donated = donates * 5;
   
       let winner = message.mentions.members.first();
   
@@ -21,7 +21,7 @@ module.exports = {
       }
   
       if (userRoles.includes("୨・donator")) {
-        donate = donated;
+        donate = parseInt(donated);
       }
       
       if (userRoles.includes("୨・booster")) {
