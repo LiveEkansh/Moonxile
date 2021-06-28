@@ -20,7 +20,7 @@ module.exports = {
         }
     
         if (userRoles.includes("୨・donator")) {
-          donate = donated;
+          donate = parseInt(donated);
         }
         
         if (userRoles.includes("୨・booster")) {
