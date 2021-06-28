@@ -33,7 +33,8 @@ module.exports = {
                 
                 )
             }
-            const donation = data.content.length;
+            const donateNum = data.content.length;
+            const donation = parseInt(donateNum);
             module.exports.donation = donation;
         })
     }
