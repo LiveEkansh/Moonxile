@@ -41,7 +41,7 @@ client.on('ready', () =>{
 });
 
 client.on('message', message =>{
-    if(message.content.startsWith('!greroll') || message.content.startsWith('g!reroll') || message.content.startsWith('q!reroll')){
+    if(message.content.startsWith('!greroll') || message.content.startsWith('g!reroll') || message.content.startsWith('q!reroll') || message.content.startsWith('m!reroll')){
         const author = message.author;
 
         module.exports.author = author;
