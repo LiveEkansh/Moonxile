@@ -24,7 +24,7 @@ module.exports = {
                     .setTimestamp()
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
-            } else {
+            } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Donations`)
                 .setDescription(`**No Data Found**`)
@@ -34,14 +34,5 @@ module.exports = {
                 )
             }
         })
-
-    db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
-        if(err) throw err;
-        if(data){
-        const donates = parseInt(db.collection.count(data))
-
-        module.exports.donates = donates;
-    }
-});
     }
 }

@@ -24,7 +24,7 @@ module.exports = {
                     .setTimestamp()
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
-            } else {
+            } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Claims`)
                 .setDescription(`**No Data Found**`)
