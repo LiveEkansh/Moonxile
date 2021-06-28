@@ -17,8 +17,15 @@ module.exports = {
 
         const number = num + 1;
 
-        message.channel.bulkDelete(parseInt(number), true)
-        .catch(console.error);
+        message.channel.messages.fetch({ limit: number })
+        .then(fetched =>{
+            const notPin = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
+
+            message.channel.bulkDelete(parseInt(notPin), true)
+            .catch(console.error);
+        });
+        // message.channel.bulkDelete(parseInt(number), true)
+        // .catch(console.error);
 
         message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` messages cleared!`)
         .then(message =>{
@@ -27,3 +34,12 @@ module.exports = {
         .catch(console.error);
     }
 }
+/*
+message.channel.fetchMessages({ limit: 100 })
+  .then(fetched => {
+    const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
+
+    message.channel.bulkDelete(notPinned, true);
+  })
+  .catch(console.error);
+*/
