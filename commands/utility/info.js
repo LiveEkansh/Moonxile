@@ -5,7 +5,7 @@ module.exports = {
     execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
-        const { donation } = require('../server/donations');
+        const { donates } = require('../server/donations');
 
         var DefaultTime = 10;
         var support = 0;
@@ -19,7 +19,7 @@ module.exports = {
         }
     
         if (userRoles.includes("୨・donator")) {
-          donate = (parseInt(donation) * 5);
+          donate = (parseInt(donates) * 5);
         }
         
         if (userRoles.includes("୨・booster")) {
@@ -38,7 +38,7 @@ module.exports = {
 
             {name: 'Joined', value: `${moment.utc(member.joinedAt).format("MMMM Do YYYY")}`, inline: true},
             {name: 'Created', value: `${moment.utc(member.user.createdAt).format("MMMM Do YYYY")}`, inline: true},
-            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true}
+            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true},
         )
 
         .setFooter(`ID : ${member.user.id}`)

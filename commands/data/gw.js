@@ -4,8 +4,8 @@ module.exports = {
     execute(client, message){
 
       const { author } = require('./../../main');
-      const { donation } = require('../server/donations');
-      const donated = parseInt(donation) * 5;
+      const { donates } = require('../server/donations');
+      const donated = parseInt(donates) * 5;
   
       let winner = message.mentions.members.first();
   

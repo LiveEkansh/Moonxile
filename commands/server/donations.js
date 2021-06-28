@@ -22,7 +22,7 @@ module.exports = {
                     )
                     .setColor("00ffcc")
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
-                    .setFooter(`${data.content.length} donation(s)`, message.guild.iconURL({ dynamic: true }))
+                    .setFooter(`${parseInt(data.content.length)} donation(s)`, message.guild.iconURL({ dynamic: true }))
                 )
             } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
@@ -33,8 +33,8 @@ module.exports = {
                 
                 )
             }
-            const donation = data.content.length;
-            module.exports.donation = donation;
+            const donates = parseInt(data.content.length);
+            module.exports.donation = donates;
         })
     }
 }
