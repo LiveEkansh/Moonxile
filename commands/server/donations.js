@@ -24,15 +24,14 @@ module.exports = {
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                     .setFooter(`${parseInt(data.content.length)} donation(s)`, message.guild.iconURL({ dynamic: true }))
                 )
-            } else if (!data){
+            } else {
                 message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Donations`)
                 .setDescription(`**No Data Found**`)
                 .setColor('00ffcc')
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
-                
                 )
-            }
+            };
             const donates = parseInt(data.content.length);
             module.exports.donation = donates;
         })
