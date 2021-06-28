@@ -6,11 +6,10 @@ module.exports = {
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
         const { donation } = require('../server/donations');
-        const donated = parseInt(donation) * 5;
 
         var DefaultTime = 10;
         var support = 0;
-        var donate = 0;
+        var donate = parseInt(donation) * 5;
         var boost = 0;
        
         const userRoles = member.roles.cache.map((r) => r.name);
@@ -19,9 +18,9 @@ module.exports = {
           support = 3;
         }
     
-        if (userRoles.includes("୨・donator")) {
-          donate = donated;
-        }
+        // if (userRoles.includes("୨・donator")) {
+        //   donate = 5;
+        // }
         
         if (userRoles.includes("୨・booster")) {
           boost = 10;
