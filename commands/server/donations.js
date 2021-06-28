@@ -21,16 +21,14 @@ module.exports = {
                         )
                     )
                     .setColor("00ffcc")
-                    .setTimestamp()
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
-                    .setFooter(`${data.length} donations`, message.guild.iconURL({ dynamic: true }))
+                    .setFooter(`${db.length} donations`, message.guild.iconURL({ dynamic: true }))
                 )
             } else if (!data){
                 message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Donations`)
                 .setDescription(`**No Data Found**`)
                 .setColor('00ffcc')
-                .setTimestamp()
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             }
