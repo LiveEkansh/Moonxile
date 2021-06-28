@@ -17,7 +17,7 @@ module.exports = {
 
         const number = num + 1;
 
-        message.channel.messages.fetch({ limit: number })
+        message.channel.messages.cache.fetch({ limit: number })
         .then(fetched =>{
             const notPin = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
 
