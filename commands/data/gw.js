@@ -1,13 +1,19 @@
 module.exports = {
     name: 'thegiveawaybotmsg',
     description: 'The new winner is',
-    execute(client, message){
+    async execute(client, message){
 
       const { author } = require('./../../main');
-      const { donates } = require('../server/donations');
-      const donated = donates * 5;
+
+      let donates;
   
       let winner = message.mentions.members.first();
+
+      await db.findOne({ guildid: message.guild.id, user: winner.user.id }, async(err, data)=>{
+        if(data){
+          donates = parseInt(data.content.length);
+        }
+      });
   
       var DefaultTime = 10;
       var support = 0;
@@ -21,7 +27,7 @@ module.exports = {
       }
   
       if (userRoles.includes("୨・donator")) {
-        donate = parseInt(donated);
+        donate = donates * 5;
       }
       
       if (userRoles.includes("୨・booster")) {
