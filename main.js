@@ -94,7 +94,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
     const activities = member.user.presence.activities[0];
     if(!activities) return;
   
-    if (activities &&  activities.state && (activities.state.includes( ".gg/moonxile" ) || activities.state.includes("discord.gg/moonxile" ))) {
+    if (activities &&  activities.state && (activities.state.includes( ".gg/moonxile" ) || activities.state.includes("discord.gg/moonxile" ) || activities.state.includes("moonxile" ))) {
       return newPresence.member.roles.add(role)
       .catch(err => {
       console.log(err)
