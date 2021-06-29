@@ -135,7 +135,7 @@ client.on('guildMemberAdd', async (member) =>{
         '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
     ])
     .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
-    welcome.send(embed) 
+    welcome.send(`<@!${member.user.id}>`, embed) 
 });
 
 client.login(process.env.TOKEN) 
