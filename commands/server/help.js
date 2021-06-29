@@ -127,18 +127,18 @@ module.exports = {
         .setTimestamp()
         .setFooter('Developer : .Ninnn.#0008')
 
-        const name = args[0].toLowerCase();
-        if(name == 'manager'){
-            return message.channel.send(manager)
-        } else if(name == 'utility'){
-            return message.channel.send(utility)
-        } else if(name == 'server'){
-            return message.channel.send(server)
-        } else if(name == 'giveaway'){
-            return message.channel.send(giveaway)
-        } else {
-            message.channel.send(`No such category named '${name}'`)
-        };
+        // const name = args[0].toLowerCase();
+        // if(name == 'manager'){
+        //     return message.channel.send(manager)
+        // } else if(name == 'utility'){
+        //     return message.channel.send(utility)
+        // } else if(name == 'server'){
+        //     return message.channel.send(server)
+        // } else if(name == 'giveaway'){
+        //     return message.channel.send(giveaway)
+        // } else {
+        //     message.channel.send(`No such category named '${name}'`)
+        // };
 
         const pages = [
             embed,
