@@ -124,7 +124,7 @@ client.on('guildMemberAdd', async (member) =>{
         })
             .catch(console.error);
     });
-    const welcome = member.guild.channels.cache.get('₊ʚ🍀・general');
+    const welcome = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🍀・general');
     if(!welcome) return;
     const embed = new Discord.MessageEmbed()
     .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
