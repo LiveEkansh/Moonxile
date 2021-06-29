@@ -1,3 +1,5 @@
+const pagination = require('discord.js-pagination');
+
 module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
@@ -6,19 +8,16 @@ module.exports = {
         .setColor('00ffcc')
 
         .addFields(
-            {name: '<:1_sign:857846611397050369> Manager', value: '**`;;help manager`**'},
-            {name: '<:1_stock:857846661937234000> Utility', value: '**`;;help utility`**'},
-            {name: '<:1_box:857846673430282250> Server', value: '**`;;help server`**'},
-            {name: '<:1_tada:857846692233478154> Giveaway', value: '**`;;help giveaway`**'}
+            {name: '<:1_sign:857846611397050369> Manager', value: '**Page `2`**'},
+            {name: '<:1_stock:857846661937234000> Utility', value: '**Page `3`**'},
+            {name: '<:1_box:857846673430282250> Server', value: '**Page `4`**'},
+            {name: '<:1_tada:857846692233478154> Giveaway', value: '**Page `5`**'}
         )
 
         .setThumbnail(message.guild.iconURL( {dynamic: true} ))
         .setTimestamp()
         .setFooter('Developer : .Ninnn.#0008')
-        
-        if(!args.length){
-        return message.channel.send(embed)
-        };
+    
         const manager = new Discord.MessageEmbed()
         .setAuthor('Manager Commands', message.author.displayAvatarURL({ dynamic: true }))
         .setColor('00ffcc')
@@ -141,5 +140,18 @@ module.exports = {
             message.channel.send(`No such category named '${name}'`)
         };
 
+        const pages = [
+            embed,
+            manager,
+            utility,
+            server,
+            giveaway
+        ];
+
+        const emojiList = ['◀️', '▶️'];
+
+        const timeout = 120000;
+
+        pagination(message, pages, emojiList, timeout);
     }
 }
