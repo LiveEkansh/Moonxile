@@ -12,6 +12,8 @@ mongoose.connect(process.env.MONGO, {
 const config = require('./config.json');
 const prefix = config.prefix;
 
+const Schema = require('./commands/models/welcome');
+
 client.models = new Discord.Collection();
 client.commands = new Discord.Collection();
 const load_dir = (dirs) =>{
@@ -111,14 +113,17 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
     }
 });
 
-client.on('guildMemberAdd', member =>{
-    const channel = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🎉・no-req');
-    if(!channel) return;
-    channel.send(`Welcome to **${member.guild.name}**, ${member}!`)
-    .then(message =>{
-        message.delete({ timeout: 5000 })
-    })
-    .catch(console.error);
-}); 
+client.on('guildMemberAdd', async (member) =>{
+    Schema.findOne({ Guild: member.guild.id }, async(e, data)=>{
+        if(!data) return;
+        const channel = member.guild.channels.cache.get(data.Channel);
 
-client.login(process.env.TOKEN)
+        channel.send(`Welcome to **${member.guild.name}**, ${member}!`)
+            .then(message =>{
+                message.delete({ timeout: 5000 })
+        })
+            .catch(console.error);
+    });
+});
+
+client.login(process.env.TOKEN) 
