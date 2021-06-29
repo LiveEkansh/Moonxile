@@ -124,6 +124,18 @@ client.on('guildMemberAdd', async (member) =>{
         })
             .catch(console.error);
     });
+    const welcome = member.guild.channels.cache.get('₊ʚ🍀・general');
+    if(!welcome) return;
+    welcome.send(new Discord.MessageEmbed()
+        .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
+        .setColor('00FFCC')
+        .setImage("https://cdn.discordapp.com/attachments/855652245025587200/859457356509347870/Welcome.gif")
+        .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
+            '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
+            '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
+        ])
+        .setFooter(`You are our ${member.guild.users.cache.size}th member!`, member.guild.iconURL())
+    ) 
 });
 
 client.login(process.env.TOKEN) 
