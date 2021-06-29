@@ -7,6 +7,9 @@ module.exports = {
             return message.reply('Missing Permissions : `MANAGE_ROLES`')
         };
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+        if(!member){
+            return message.reply('Incorrect Usage : `;;mute <@user> [reason]`')
+        }
         const reason = args.slice(1).join(' ');
         if(!reason) reason == 'Unspecified';
         const role = message.guild.roles.cache.find(r => r.name == '୨・muted');

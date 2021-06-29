@@ -1,3 +1,5 @@
+const db = require('../models/d-schema');
+
 module.exports = {
     name: 'thegiveawaybotmsg',
     description: 'The new winner is',
