@@ -38,6 +38,12 @@ module.exports = {
             '\u200b',
             '`-` purge',
             'Usage : `;;purge <number>`',
+            '\u200b',
+            '`-` greet',
+            'Usage : `;;greet [channel]`',
+            '\u200b',
+            '`-` check',
+            'Usage : `;;check`',
             '\u200b'
         ])
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
