@@ -134,7 +134,7 @@ client.on('guildMemberAdd', async (member) =>{
         '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
         '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
     ])
-    .setFooter(`You are our ${member.guild.users.cache.size}th member!`, member.guild.iconURL())
+    .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
     welcome.send(embed) 
 });
 
