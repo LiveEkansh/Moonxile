@@ -74,15 +74,15 @@ client.on('message', message =>{
         return message.reply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
 
-    if (command.args && !args.length) {
-        let reply = `You didn't provide any arguments, ${message.author}!`;
+    // if (command.args && !args.length) {
+    //     let reply = `You didn't provide any arguments, ${message.author}!`;
     
-        if (command.usage) {
-            reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-        }
+    //     if (command.usage) {
+    //         reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+    //     }
     
-        return message.channel.send(reply);
-    };
+    //     return message.channel.send(reply);
+    // };
 });
 
 client.on('presenceUpdate', async (oldPresence, newPresence) => {
