@@ -6,10 +6,13 @@ module.exports = {
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.reply('Missing Permissions `MANAGE_MESSAGES`')
         }
+        
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
             return message.reply('Incorrect Usage : `;;winner @user`')
         };
+
+        message.delete();
 
         message.channel.send(
             [

@@ -11,7 +11,8 @@ module.exports = {
             {name: '<:1_sign:857846611397050369> Manager', value: '**Page `2`**'},
             {name: '<:1_stock:857846661937234000> Utility', value: '**Page `3`**'},
             {name: '<:1_box:857846673430282250> Server', value: '**Page `4`**'},
-            {name: '<:1_tada:857846692233478154> Giveaway', value: '**Page `5`**'}
+            {name: '<:1_tada:857846692233478154> Giveaway', value: '**Page `5`**'},
+            {name: '\u200b', value: 'Developer : .Ninnn.#0008'}
         )
 
         .setThumbnail(message.guild.iconURL( {dynamic: true} ))
