@@ -6,16 +6,16 @@ module.exports = {
         };
 
         const roles = [
-            '୨・Creators',
-            '୨・founder',
-            '୨・co founder',
-            '୨・owner',
-            '୨・co owner',
-            '୨・head admin',
-            '୨・admin',
-            '୨・head mod',
-            '୨・moderator',
-            '୨・trial mod'
+            'Creators',
+            'founder',
+            'co founder',
+            'owner',
+            'co owner',
+            'head admin',
+            'admin',
+            'head mod',
+            'moderator',
+            'trial mod'
         ]
 
         const embed = new Discord.MessageEmbed()
@@ -25,8 +25,8 @@ module.exports = {
         .setTimestamp()
 
         for (role of roles) {
-            const members = message.guild.roles.cache.find(r => r.name === `${role}`).members.map(m => m.user.tag).join('\n');
-            embed.addField(`${role}`, `${members}`, true);
+            const members = message.guild.roles.cache.find(r => r.name === `୨・${role}`).members.map(m => m.user.tag).join('\n');
+            embed.addField(`୨・${role}`, `.\n${members}`, true);
           };
           
 
