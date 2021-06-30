@@ -5,28 +5,30 @@ module.exports = {
             return message.reply('Missing Permissions `ADMINISTRATOR`')
         };
 
+        const roles = [
+            '୨・Creators',
+            '୨・founder',
+            '୨・co founder',
+            '୨・owner',
+            '୨・co owner',
+            '୨・head admin',
+            '୨・admin',
+            '୨・head mod',
+            '୨・moderator',
+            '୨・trial mod'
+        ]
+
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.guild.name + ' Staff', message.guild.iconURL())
-
-        .addFields(
-            {name: '୨・Creators', value: message.guild.roles.cache.find(r => r.name == '୨・Creators').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・founder', value: message.guild.roles.cache.find(r => r.name == '୨・founder').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・co founder', value: message.guild.roles.cache.find(r => r.name == '୨・co founder').members.map(m => m.user.tag).join('\n'), inline:true},
-
-            {name: '୨・owner', value: message.guild.roles.cache.find(r => r.name == '୨・owner').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・co owner', value: message.guild.roles.cache.find(r =>r.name == '୨・co owner').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・head admin', value: message.guild.roles.cache.find(r => r.name == '୨・head admin').members.map(m => m.user.tag).join('\n'), inline:true},
-
-            {name: '୨・admin', value: message.guild.roles.cache.find(r => r.name == '୨・admin').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・head mod', value: message.guild.roles.cache.find(r => r.name == '୨・head mod').members.map(m => m.user.tag).join('\n'), inline:true},
-            {name: '୨・moderator', value: message.guild.roles.cache.find(r => r.name == '୨・moderator').members.map(m => m.user.tag).join('\n'), inline:true},
-
-            {name: '୨・trial mod', value: message.guild.roles.cache.find(r => r.name == '୨・trial mod').members.map(m => m.user.tag).join('\n'), inline:true}
-        )
-
         .setColor('00FFCC')
         .setFooter('Last Updated')
         .setTimestamp()
+
+        for (role of roles) {
+            const members = message.guild.roles.cache.find(r => r.name === `${role}`).members.map(m => m.user.tag).join('\n');
+            embed.addField(`${role}`, members, true);
+          };
+          
 
         message.channel.send(embed)
     }
