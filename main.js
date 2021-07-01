@@ -114,7 +114,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
 });
 
 client.on('guildMemberAdd', async (member) =>{
-    if(member.bot) return;
+    if(member.user.bot) return;
     Schema.findOne({ Guild: member.guild.id }, async(e, data)=>{
         if(!data) return;
         const channel = member.guild.channels.cache.get(data.Channel);
