@@ -8,7 +8,7 @@ module.exports = {
         const user = message.mentions.users.first() || message.author;
         const embed = new Discord.MessageEmbed()
         .setColor('00ffcc')
-        .setDescription(`<:1_gift:857846495046402088> **GG! STAY IN THAT SERVER!**
+        .addField('<:1_gift:857846495046402088> **GG! STAY IN THAT SERVER!**', `
         <:1_dotline:857846544128802826> Only those who joined with ${user}'s link can win.
                 
         <:1_info:857846561714208819> **LATE? make sure to follow tips below:**
