@@ -19,6 +19,7 @@ module.exports = {
         <:1_dots:857846478587428904> Be active in **drops/giveaways** for you to win **NITRO & ROBUX**
                 
         <:1_sign:857846611397050369>**Stay in channel so you won't miss the giveaway**`)
+        .setImage('https://i.imgur.com/PZyF3Qu.gif')
         .setTimestamp()
 
         message.channel.send(embed)
