@@ -31,6 +31,7 @@ module.exports = {
         .setTitle('Member Muted')
         .setDescription(`Member : **${member.user.tag}**\nModerator : **${message.author.tag}**\nReason : ${reason}`)
         .setFooter('Muted at')
+        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor('RED')
 

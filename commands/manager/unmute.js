@@ -21,6 +21,7 @@ module.exports = {
         .setTitle('Member Unmuted')
         .setDescription(`Member : **${member.user.tag}**\nModerator : **${message.author.tag}**`)
         .setFooter('Unmuted at')
+        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor('BLUE')
         )
