@@ -21,8 +21,6 @@ module.exports = {
             (await message.channel.messages.fetch({ limit: number }))
             .filter(m => !m.pinned)
         ).catch(console.error)
-        // message.channel.bulkDelete(parseInt(number), true)
-        // .catch(console.error);
 
         message.channel.send(`<a:mx_check:858745251305226270> \`${num}\` message(s) cleared!`)
         .then(message =>{
@@ -31,6 +29,8 @@ module.exports = {
         .catch(console.error);
     }
 }
+// message.channel.bulkDelete(parseInt(number), true)
+// .catch(console.error);
 /*
 message.channel.fetchMessages({ limit: 100 })
   .then(fetched => {
