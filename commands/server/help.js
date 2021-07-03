@@ -152,7 +152,7 @@ module.exports = {
             giveaway
         ];
 
-        const emojiList = ['<:mx_arrow2:860780419037659146>', '<:mx_arrow:860780053750611968>'];
+        const emojiList = ['◀️', '▶️'];
 
         const timeout = 120000;
 
