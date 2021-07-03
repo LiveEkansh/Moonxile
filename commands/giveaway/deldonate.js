@@ -10,7 +10,7 @@ module.exports = {
         };
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-        if(member.bot){
+        if(member.user.bot){
             return message.reply('The user mentioned is a bot')
         };
         if(!member){

@@ -11,7 +11,7 @@ module.exports = {
         };
 
         const member = message.mentions.members.first();
-        if(member.bot){
+        if(member.user.bot){
             return message.reply('The user mentioned is a bot')
         };
 

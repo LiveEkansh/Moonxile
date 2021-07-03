@@ -5,7 +5,7 @@ module.exports = {
     async execute(client, message, args, Discord){
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-        if(member.bot){
+        if(member.user.bot){
             return message.reply('The user is a bot.')
         };
 
