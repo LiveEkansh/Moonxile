@@ -1,9 +1,9 @@
 module.exports = {
     name: 'purge',
     args: true,
-    usage: '<@user> <number> `or` <@user>',
+    usage: '<@user> <number> `or` <number>',
     async execute(client, message, args, Discord){
-        const user = message.mentions.user.first();
+        const user = message.mentions.users.first();
         const number = !!parseInt(args[0]) ? parseInt(args[0]) : parseInt(args[1]);
 
         const num = number + 1;
