@@ -6,6 +6,14 @@ module.exports = {
         const user = message.mentions.users.first();
         const number = !!parseInt(args[0]) ? parseInt(args[0]) : parseInt(args[1]);
 
+        if(isNaN(number)){
+            return message.reply('Enter a valid number. Eg: `;;purge 10`')
+        };
+
+        if(number > 99 || number < 1){
+            return message.reply('Cannot clear messages more than `100` and less than `1`')
+        };
+
         const num = number + 1;
         
         await message.channel.messages.fetch({
