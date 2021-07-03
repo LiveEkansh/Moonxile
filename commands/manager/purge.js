@@ -17,7 +17,7 @@ module.exports = {
         const num = number + 1;
         
         await message.channel.messages.fetch({
-            limit: num,
+            limit: 100,
         }).then((messages) =>{
             if(user){
                 const purge = user ? user.id : client.user.id;
@@ -25,7 +25,7 @@ module.exports = {
                 messages = messages.filter(m => m.author.id === purge).array().slice(0, num)
             }
 
-        message.channel.bulkDelete(messages).catch(console.error)
+        message.channel.bulkDelete(messages, true).catch(console.error)
         });
 
         await message.channel.send(`<a:mx_check:858745251305226270> | \`${number}\` message(s) cleared!`).then(m =>{
