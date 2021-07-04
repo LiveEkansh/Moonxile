@@ -5,7 +5,7 @@ module.exports = {
     args: true,
     usage: '<@user> <reason>',
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.get('857892859310505995')){
+        if(!message.member.hasPermission('MANAGE_ROLES') || !message.member.roles.get('857892859310505995')){
             return message.reply('Missing Permissions, Must be a Trial Mod!')
         };
 
