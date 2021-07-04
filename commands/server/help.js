@@ -131,6 +131,26 @@ module.exports = {
         .setTimestamp()
         .setFooter('Developer : .Ninnn.#0008')
 
+        const moderator = new Discord.MessageEmbed()
+        .setAuthor('Moderator Commands', message.author.displayAvatarURL({ dynamic: true }))
+        .setColor('00ffcc')
+        .setDescription('`<` `>` is mandatory, `[` `]` is optional.')
+        .addField('\u200b', [
+            '`-` warn',
+            'Usage : `;;warn <@user> <reason>`',
+            '\u200b',
+            '`-` delwarn',
+            'Usage : `;;delwarn <@user> <warnID>`',
+            '*WarnID can be found in `;;warnings <@user>`*',
+            '\u200b',
+            '`-` clearwarn',
+            'Usage : `;;clearwarn <@user>`',
+            '\u200b'
+        ])
+        .setThumbnail(message.guild.iconURL({ dynamic: true }))
+        .setTimestamp()
+        .setFooter('Developer : .Ninnn.#0008')
+
         // const name = args[0].toLowerCase();
         // if(name == 'manager'){
         //     return message.channel.send(manager)
@@ -147,6 +167,7 @@ module.exports = {
         const pages = [
             embed,
             manager,
+            moderator,
             utility,
             server,
             giveaway

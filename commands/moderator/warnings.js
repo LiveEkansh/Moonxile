@@ -13,7 +13,7 @@ module.exports = {
                     .setDescription(
                         data.content.map(
                             (w, i) => 
-                            `\`${i + 1}\`. **Reason : ${w.reason}**\n**Moderator : ${message.guild.members.cache.get(w.moderator).user.tag}**\n`
+                            `\`${i + 1}\`. **Reason :** ${w.reason}\n**Moderator :** ${message.guild.members.cache.get(w.moderator).user.tag}\n`
                         )
                     )
                     .setColor("BLUE")
@@ -23,8 +23,8 @@ module.exports = {
                 message.channel.send(new Discord.MessageEmbed()
                     .setAuthor(`${member.user.username}'s warnings`, member.user.displayAvatarURL({ dynamic: true }))
                     .setColor("BLUE")
-                    .setDescription('No data found')
-                    .setFooter(`No Warnings`)
+                    .setDescription('**No Data Found!**')
+                    .setTimestamp()
                 )
             }
         })
