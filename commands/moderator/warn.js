@@ -50,7 +50,7 @@ module.exports = {
                 .setFooter('Warned at')
                 .setTimestamp()
                 .setColor("RED")
-            );
+            ).catch(console.error);
         await message.channel.send(new Discord.MessageEmbed()
             .setAuthor('Member Warned!', message.guild.iconURL({ dynamic:true }))
             .addFields(
