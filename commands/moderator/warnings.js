@@ -9,7 +9,7 @@ module.exports = {
             if(err) throw err;
             if(data){
                 message.channel.send(new Discord.MessageEmbed()
-                    .setTitle(`${user.user.tag}'s warns`)
+                    .setTitle(`${member.user.tag}'s warns`)
                     .setDescription(
                         data.content.map(
                             (w, i) => 
