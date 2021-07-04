@@ -5,8 +5,8 @@ module.exports = {
     args: true,
     usage: '<@user> <reason>',
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_ROLES') || !message.member.roles.cache.get('857892859310505995')){
-            return message.reply('Missing Permissions, Must be a Trial Mod!')
+        if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '୨・trial mod')){
+            return message.channel.send('Must have `@୨・trial mod` or above to execute this command')
         };
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
