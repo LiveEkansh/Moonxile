@@ -29,7 +29,7 @@ const load_dir = (dirs) =>{
     }
 }
 
-['data', 'giveaway', 'manager', 'server', 'utility', 'models', 'moderator'].forEach(e => load_dir(e));
+['data', 'giveaway', 'manager', 'server', 'utility', 'models', /* 'moderator' */].forEach(e => load_dir(e));
 
 client.on('ready', () =>{
     console.log(`${client.user.tag} is online!`);

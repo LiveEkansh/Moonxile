@@ -16,6 +16,10 @@ module.exports = {
             return message.reply('Invalid Usage : `;;warn <@user> <reason>`')
         };
 
+        if(member.user.id === message.author.id){
+            return message.reply('You cannot warn yourself!')
+        };
+
         await db.findOne({ guildid: message.guild.id, user: member.user.id }, async (err, data)=>{
             if(err) throw err;
 

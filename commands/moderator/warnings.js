@@ -13,7 +13,7 @@ module.exports = {
                     .setDescription(
                         data.content.map(
                             (w, i) =>{
-                                `${i + 1}. **Reason: ${w.reason}**\n**Moderator: ${message.guild.members.cache.get(w.moderator).user.tag}**`
+                                `${i + 1}. **Reason: ${w.reason}**\n**Moderator: ${message.guild.members.cache.get(w.moderator).user.tag}**\n`
                             }
                         )
                     )
