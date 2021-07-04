@@ -44,6 +44,13 @@ module.exports = {
             data.save();
         });
 
+        await member.send(new Discord.MessageEmbed()
+                .setAuthor(message.guild.name, message.guild.iconURL())
+                .setDescription(`Warned by **${message.author.tag}** for **${reason}**`)
+                .setFooter('Warned at')
+                .setTimestamp()
+                .setColor("RED")
+            );
         await message.channel.send(new Discord.MessageEmbed()
             .setAuthor('Member Warned!', message.guild.iconURL({ dynamic:true }))
             .addFields(
@@ -55,6 +62,6 @@ module.exports = {
             .setFooter('Warned at')
             .setTimestamp()
             .setColor("RED")
-        )
+        );
     }
 }

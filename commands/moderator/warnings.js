@@ -8,17 +8,15 @@ module.exports = {
         await db.findOne({ guildid:message.guild.id, user:member.user.id }, async (err, data)=>{
             if(err) throw err;
             if(data){
-                message.channel.send(new Discord.MessageEmbed()
-                    .setAuthor(`${member.user.username}'s warnings`, member.user.displayAvatarURL({ dynamic: true }))
+                message.channel.send(new MessageEmbed()
+                    .setTitle(`${user.user.tag}'s warns`)
                     .setDescription(
                         data.content.map(
-                            (w, i) =>{
-                                `${i + 1}. **Reason: ${w.reason}**\n**Moderator: ${message.guild.members.cache.get(w.moderator).user.tag}**\n`
-                            }
+                            (w, i) => 
+                            `\`${i + 1}\`. **Reason : ${w.reason}**\n**Moderator : ${message.guild.members.cache.get(w.moderator).user.tag}**\n`
                         )
                     )
-                    .setColor("00FFCC")
-                    .setFooter(`${data.content.length} warning(s)`)
+                    .setColor("BLUE")
                 )
             } else {
                 message.channel.send(new Discord.MessageEmbed()
