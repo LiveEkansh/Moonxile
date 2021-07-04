@@ -8,7 +8,7 @@ module.exports = {
         await db.findOne({ guildid:message.guild.id, user:member.user.id }, async (err, data)=>{
             if(err) throw err;
             if(data){
-                message.channel.send(new MessageEmbed()
+                message.channel.send(new Discord.MessageEmbed()
                     .setTitle(`${user.user.tag}'s warns`)
                     .setDescription(
                         data.content.map(
@@ -17,11 +17,12 @@ module.exports = {
                         )
                     )
                     .setColor("BLUE")
+                    .setFooter(`${data.content.length} warning(s)`)
                 )
             } else {
                 message.channel.send(new Discord.MessageEmbed()
                     .setAuthor(`${member.user.username}'s warnings`, member.user.displayAvatarURL({ dynamic: true }))
-                    .setColor("00FFCC")
+                    .setColor("BLUE")
                     .setDescription('No data found')
                     .setFooter(`No Warnings`)
                 )
