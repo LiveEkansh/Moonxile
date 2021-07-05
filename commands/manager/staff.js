@@ -11,11 +11,11 @@ module.exports = {
             'co founder',
             'owner',
             'co owner',
-            'head admin',
-            'admin',
-            'head mod',
+            'head administrator',
+            'administrator',
+            'head moderator',
             'moderator',
-            'trial mod'
+            'trial moderator'
         ];
 
         const embed = new Discord.MessageEmbed()
