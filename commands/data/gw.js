@@ -24,15 +24,15 @@ module.exports = {
      
       const userRoles = winner.roles.cache.map((r) => r.name);
       
-      if (userRoles.includes("୨・supporter")) {
+      if (userRoles.includes("・supporter")) {
         support = 3;
       }
   
-      if (userRoles.includes("୨・donator")) {
+      if (userRoles.includes("・donator")) {
         donate = donates * 5;
       }
       
-      if (userRoles.includes("୨・booster")) {
+      if (userRoles.includes("・booster")) {
         boost = 10;
       }
   
@@ -47,7 +47,7 @@ module.exports = {
             message.channel.send(`${TotalTime} seconds up!`);
           }, TotalTime * 1000);
         });
-      if(userRoles.includes("୨・claimed")){
+      if(userRoles.includes("・claimed")){
         return message.channel.send(`${winner.user.tag} has already claimed! Check \`;;claims ${winner.id}\`.`)
       }
     },

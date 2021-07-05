@@ -42,7 +42,7 @@ module.exports = {
             }
             data.save();
         });
-        const role = message.guild.roles.cache.find(r => r.name == '୨・donator');
+        const role = message.guild.roles.cache.find(r => r.name == '・donator');
         if(!role){
             return message.reply('No Donator role found!')
         };

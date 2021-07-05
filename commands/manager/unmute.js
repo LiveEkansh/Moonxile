@@ -7,7 +7,7 @@ module.exports = {
         if(!member){
             return message.reply('Incorrect Usage : `;;unmute <@user>`')
         }
-        const role = message.guild.roles.cache.find(r => r.name == '୨・muted');
+        const role = message.guild.roles.cache.find(r => r.name == '・muted');
         if(!role) return;
         /*if(!member.roles.cache.find(role)){
             return message.channel.send(`${member.user.tag} is not muted!`)

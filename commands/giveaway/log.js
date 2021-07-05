@@ -41,7 +41,7 @@ module.exports = {
             }
             data.save();
         });
-        const role = message.guild.roles.cache.find(r => r.name == '୨・claimed');
+        const role = message.guild.roles.cache.find(r => r.name == '・claimed');
         if(!role) return;
         member.roles.add(role);
 

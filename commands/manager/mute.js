@@ -12,7 +12,7 @@ module.exports = {
         }
         const reason = args.slice(1).join(' ');
         if(!reason) reason == 'Unspecified';
-        const role = message.guild.roles.cache.find(r => r.name == '୨・muted');
+        const role = message.guild.roles.cache.find(r => r.name == '・muted');
         if(!role){
             return message.reply('No Muted role found!')
         };
