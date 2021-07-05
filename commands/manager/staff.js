@@ -6,7 +6,7 @@ module.exports = {
         };
 
         const roles = [
-            'Creators',
+            'creator',
             'founder',
             'co founder',
             'owner',
@@ -16,7 +16,7 @@ module.exports = {
             'head mod',
             'moderator',
             'trial mod'
-        ]
+        ];
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.guild.name + ' Staff', message.guild.iconURL())
@@ -25,8 +25,8 @@ module.exports = {
         .setTimestamp()
 
         for (role of roles) {
-            const members = message.guild.roles.cache.find(r => r.name === `୨・${role}`).members.map(m => m.user.tag).join('\n');
-            embed.addField(`୨・${role}`, `${members}\n_ _`, true);
+            const members = message.guild.roles.cache.find(r => r.name === `・${role}`).members.map(m => m.user.tag).join('\n');
+            embed.addField(`・${role}`, `${members}\n_ _`, true);
           };
           
 
