@@ -25,9 +25,13 @@ module.exports = {
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
 
-                    const claims = data.content.map((w, i));
+                    const claims = data.content.map();
                         for(claim of claims){
-                            embed.addField(`${w.date}`, `Reward: **${w.reward}**\nClaim ID: \`${i + 1}\`\n`)
+                            embed.addField(data.content.map(
+                                (w, i)=>
+                                `${w.date}`, `Reward: **${w.reward}**\nClaim ID: \`${i + 1}\`\n`, true
+                                )
+                            )
                         };
                 message.channel.send(embed)
             } else if (!data){
