@@ -23,7 +23,7 @@ module.exports = {
                     )
                     .setColor("00ffcc")
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
-                    .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
+                    .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 
                     // const claims = data.content.map((w, i) => {
                     //     for(claim of claims){

@@ -87,7 +87,7 @@ client.on('message', message =>{
 
 client.on('presenceUpdate', async (oldPresence, newPresence) => {
 
-    const role = newPresence.guild.roles.cache.find(r => r.name == '୨・supporter');
+    const role = newPresence.guild.roles.cache.find(r => r.name == '・supporter');
     if(!role) return;
     const member = newPresence.member
     if(!member) return;
