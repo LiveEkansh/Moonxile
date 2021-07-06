@@ -25,7 +25,7 @@ module.exports = {
                     .setFooter(`${parseInt(data.content.length)} donation(s)`, message.guild.iconURL({ dynamic: true }))
 
                     data.content.forEach((w, i) =>{
-                        embed.addField(`${w.date}`, `Donation: **${w.donation}**\nID: **${i + 1}**`)
+                        embed.addField(`${w.date}`, `Donation: **${w.donation}**\nID: **${i + 1}**`, true)
                     });
 
                     message.channel.send(embed)
