@@ -15,24 +15,21 @@ module.exports = {
                 
                 const embed = new Discord.MessageEmbed()
                     .setTitle(`${member.user.tag}'s Claims`)
-                    .setDescription(
-                        data.content.map(
-                            (w, i) => 
-                            `\`${i + 1}\` | **${w.date}**\nReward : **${w.reward}**\n`
-                        )
-                    )
+                    // .setDescription(
+                    //     data.content.map(
+                    //         (w, i) => 
+                    //         `\`${i + 1}\` | **${w.date}**\nReward : **${w.reward}**\n`
+                    //     )
+                    // )
                     .setColor("00ffcc")
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 
-                    // const claims = data.content.map((w, i) => {
-                    //     for(claim of claims){
-                    //         embed.addField(data.content.map(
-                    //             (w, i)=>
-                    //             `${w.date}`, `Reward: **${w.reward}**\nClaim ID: \`${i + 1}\`\n`, true
-                    //             )
-                    //         )};
-                    //     });
+                    const claims = data.content[i];
+                    for(claim in claims){
+                        embed.addField(`${claim.date}`, `Reward: **${claim.reward}**\nID: \`${i + 1}\`\n`)
+                    };
+
                         
                 message.channel.send(embed)
             } else if (!data){
