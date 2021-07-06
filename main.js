@@ -119,7 +119,7 @@ client.on('guildMemberAdd', async (member) =>{
         if(!data) return;
         const channel = member.guild.channels.cache.get(data.Channel);
 
-        channel.send(`${data.Message}`)
+        channel.send(`Welcome to **${member.guild.name}**, <@!${member.user.id}>!`)
             .then(message =>{
                 message.delete({ timeout: 5000 })
         })
