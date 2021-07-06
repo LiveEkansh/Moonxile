@@ -25,10 +25,13 @@ module.exports = {
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 
-                    for(let i in data.content){
-                        let w = data.content[1];
-                        embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true)
-                    };
+                    // for(let i in data.content){
+                    //     let w = data.content[1];
+                    //     embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true)
+                    // };
+                    data.content.forEach((w, i) => {
+                        embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true);
+                    });
 
                         
                 message.channel.send(embed)
