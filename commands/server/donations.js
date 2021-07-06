@@ -12,18 +12,24 @@ module.exports = {
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
             if(err) throw err;
             if(data) {
-                message.channel.send(new Discord.MessageEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setTitle(`${member.user.tag}'s Donations`)
-                    .setDescription(
-                        data.content.map(
-                            (w, i) => 
-                            `\`${i + 1}\` | **${w.date}**\nDonation : **${w.donation}**\n`
-                        )
-                    )
+                    // .setDescription(
+                    //     data.content.map(
+                    //         (w, i) => 
+                    //         `\`${i + 1}\` | **${w.date}**\nDonation : **${w.donation}**\n`
+                    //     )
+                    // )
                     .setColor("00ffcc")
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                     .setFooter(`${parseInt(data.content.length)} donation(s)`, message.guild.iconURL({ dynamic: true }))
-                )
+
+                    data.content.forEach((w, i) =>{
+                        embed.addField(`${w.date}`, `Donation: **${w.donation}**\nID: **${i + 1}**`)
+                    });
+
+                    message.channel.send(embed)
+                
             } else {
                 message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Donations`)
