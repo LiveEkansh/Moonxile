@@ -25,9 +25,9 @@ module.exports = {
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 
-                    const claims = data.content[i];
-                    for(claim in claims){
-                        embed.addField(`${claim.date}`, `Reward: **${claim.reward}**\nID: \`${i + 1}\`\n`)
+                    for(let i in data.content){
+                        let w = data.content[1];
+                        embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true)
                     };
 
                         
