@@ -114,17 +114,24 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
 });
 
 client.on('guildMemberAdd', async (member) =>{
+    if(member.user.bot){
+        const role = member.guild.roles.cache.find(r => r.name === '・bots');
+        if(!role) return;
+        member.roles.add(role).catch(console.error);
+    };
     if(member.user.bot) return;
     Schema.findOne({ Guild: member.guild.id }, async(e, data)=>{
         if(!data) return;
         const channel = member.guild.channels.cache.get(data.Channel);
 
+        if(member.user.bot) return;
         channel.send(`Welcome to **${member.guild.name}**, <@!${member.user.id}>!`)
             .then(message =>{
                 message.delete({ timeout: 5000 })
         })
             .catch(console.error);
     });
+
     // const welcome = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🍀・general');
     // if(!welcome) return;
     // const embed = new Discord.MessageEmbed()
