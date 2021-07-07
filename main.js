@@ -65,7 +65,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
-    const command = client.commands.get(cmd);
+    const command = client.commands.get(cmd) || client.commands.find(cd => cd.aliases && cd.aliases.includes(cmd));
     if(command) command.execute(client, message, args, Discord);
 
     if(cmd.length == 0) return;

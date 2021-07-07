@@ -9,9 +9,10 @@ module.exports = {
 
         .addFields(
             {name: '<:1_sign:857846611397050369> Manager', value: '**Page `2`**'},
-            {name: '<:1_stock:857846661937234000> Utility', value: '**Page `3`**'},
-            {name: '<:1_box:857846673430282250> Server', value: '**Page `4`**'},
-            {name: '<:1_tada:857846692233478154> Giveaway', value: '**Page `5`**'},
+            {name: '<:1_dotdot:857846709950349312> Moderator', value: '**Page `3`**'},
+            {name: '<:1_stock:857846661937234000> Utility', value: '**Page `4`**'},
+            {name: '<:1_box:857846673430282250> Server', value: '**Page `5`**'},
+            {name: '<:1_tada:857846692233478154> Giveaway', value: '**Page `6`**'},
             {name: '🔗 discord.gg/moonxile', value: '*`Developer : .Ninnn.#0008`*'}
         )
 
@@ -27,10 +28,6 @@ module.exports = {
             '`-` nuke',
             'Usage : `;;nuke`',
             '\u200b',
-            '`-` mute',
-            'Usage : `;;mute <@user> [reason]`',
-            '\u200b',
-            '`-` unmute',
             'Usage : `;;unmute <@user>`',
             '\u200b',
             '`-` slowmode',
@@ -145,24 +142,15 @@ module.exports = {
             '\u200b',
             '`-` clearwarn',
             'Usage : `;;clearwarn <@user>`',
-            '\u200b'
+            '\u200b',
+            '`-` mute',
+            'Usage : `;;mute <@user> [reason]`',
+            '\u200b',
+            '`-` unmute',
         ])
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
         .setTimestamp()
         .setFooter('Developer : .Ninnn.#0008')
-
-        // const name = args[0].toLowerCase();
-        // if(name == 'manager'){
-        //     return message.channel.send(manager)
-        // } else if(name == 'utility'){
-        //     return message.channel.send(utility)
-        // } else if(name == 'server'){
-        //     return message.channel.send(server)
-        // } else if(name == 'giveaway'){
-        //     return message.channel.send(giveaway)
-        // } else {
-        //     message.channel.send(`No such category named '${name}'`)
-        // };
 
         const pages = [
             embed,
