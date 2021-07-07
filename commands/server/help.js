@@ -28,8 +28,6 @@ module.exports = {
             '`-` nuke',
             'Usage : `;;nuke`',
             '\u200b',
-            'Usage : `;;unmute <@user>`',
-            '\u200b',
             '`-` slowmode',
             'Usage : `;;slowmode <seconds>`',
             '\u200b',
@@ -147,6 +145,8 @@ module.exports = {
             'Usage : `;;mute <@user> [reason]`',
             '\u200b',
             '`-` unmute',
+            'Usage : `;;unmute <@user>`',
+            '\u200b',
         ])
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
         .setTimestamp()
