@@ -45,13 +45,13 @@ module.exports = {
 
             {name: 'Joined', value: `${moment.utc(member.joinedAt).format("MMMM Do YYYY")}`, inline: true},
             {name: 'Created', value: `${moment.utc(member.user.createdAt).format("MMMM Do YYYY")}`, inline: true},
-            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true},
+            {name: 'Claim Time', value: `${parseInt(TotalTime)} seconds`, inline: true},
         )
 
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp()
         .setColor('00ffcc')
 
-        message.channel.send(embed)
+        await message.channel.send(embed)
     }
 }
