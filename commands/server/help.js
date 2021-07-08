@@ -10,7 +10,7 @@ module.exports = {
         if(data){
             Prefix = data.Prefix;
         } else {
-            Prefix = ';;';
+            Prefix = config.prefix;
         };
         
 
