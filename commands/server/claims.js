@@ -2,6 +2,8 @@ const db = require('../models/c-schema');
 
 module.exports = {
     name: 'claims',
+    aliases: ["cc"],
+    usage: "[@user]",
     async execute(client, message, args, Discord){
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;

@@ -2,7 +2,7 @@ const { SnowflakeUtil } = require('discord.js');
 
 module.exports = {
     name: 'snowflake',
-    description: 'Time Difference between 2 ID\'s',
+    aliases: ["timedif"],
     args: 2,
     usage: '<ID1> <ID2>',
     async execute(client, message, args, Discord){

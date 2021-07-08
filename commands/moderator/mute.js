@@ -2,6 +2,7 @@ module.exports = {
     name: 'mute',
     args: 2,
     usage: '<@user> [reason]',
+    aliases: ["m"],
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_ROLES')){
             return message.reply('Missing Permissions : `MANAGE_ROLES`')

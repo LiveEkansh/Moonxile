@@ -2,6 +2,8 @@ const db = require('../models/warnings');
 
 module.exports = {
     name : 'delwarn',
+    aliases: ["deletewarn"],
+    usage: "<@user> <warnID>",
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '୨・trial mod')){
             return message.channel.send('Must have `@୨・trial mod` or above to execute this command')

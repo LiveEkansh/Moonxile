@@ -1,5 +1,6 @@
 module.exports = {
     name: 'drop',
+    usage: "[@user]",
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.reply('Missing Permissions `MANAGE_MESSAGES`.')

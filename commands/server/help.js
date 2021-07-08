@@ -1,10 +1,11 @@
 const pagination = require('discord.js-pagination');
+const { prefix } = require('../../main');
 
 module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
         const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username + ' | Prefix - ;;', message.author.displayAvatarURL( {dynamic: true} ))
+        .setAuthor(`Prefix - ${prefix}`, message.author.displayAvatarURL( {dynamic: true} ))
         .setColor('00ffcc')
 
         .addFields(
@@ -165,6 +166,31 @@ module.exports = {
 
         const timeout = 120000;
 
-        pagination(message, pages, emojiList, timeout);
+        if(!args.length){
+            return pagination(message, pages, emojiList, timeout);
+        };
+
+        const data = [];
+        const { commands } = message.client;
+
+        const name = args[0].toLowerCase();
+        const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+
+        if(!command){
+            return message.channel.send(`Couldn't find a command with the name or alias, \`${name}\``);
+        };
+
+        data.push(`Command: **${name}**\n`);
+
+        if(command.aliases) data.push(`Aliases: **${command.aliases.join('**, **')}**\n`);
+        if(command.usage) data.push(`Usage: **${prefix}${command.name} ${command.usage}**\n`);
+
+        message.channel.send(new Discord.MessageEmbed()
+            .setAuthor(client.user.username, client.user.displayAvatarURL())
+            .setDescription(data)
+            .setFooter(`Requested by ${message.author.tag}`)
+            .setColor("00FFCC")
+            .setThumbnail(message.author.displayAvatarURL({ dynamic:true }))
+        )
     }
 }

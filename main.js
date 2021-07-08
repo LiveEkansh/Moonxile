@@ -12,6 +12,8 @@ mongoose.connect(process.env.MONGO, {
 const config = require('./config.json');
 const prefix = config.prefix;
 
+module.exports.prefix = prefix;
+
 const Schema = require('./commands/models/welcome');
 
 client.models = new Discord.Collection();

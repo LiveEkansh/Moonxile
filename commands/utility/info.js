@@ -3,6 +3,8 @@ const db = require('../models/d-schema');
 
 module.exports = {
     name: 'info',
+    aliases: ["userinfo", "user"],
+    usage: "[@user]", 
     async execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
         let donates;

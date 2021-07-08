@@ -2,6 +2,8 @@ const db = require('../models/warnings');
 
 module.exports = {
     name: 'warnings',
+    usage: "[@user]",
+    aliases: ["warns"],
     async execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 

@@ -1,5 +1,7 @@
 module.exports = {
     name: 'server',
+    aliases: ["stay"],
+    usage: "[@user]",
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.reply('Missing Permissions `MANAGE_MESSAGES`.')
