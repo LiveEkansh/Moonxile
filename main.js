@@ -71,7 +71,8 @@ client.on('message', async message =>{
     if(message.content == '<@!857984815579136030>'){
          message.channel.send(`My Prefix is \`${Prefix}\`.`)
      }
-
+    
+    // COMMAND HANDLER:-
     if(!message.content.startsWith(Prefix) || message.author.bot) return;
 
     const args = message.content.slice(guildPrefix.length).split(/ +/);
@@ -81,7 +82,6 @@ client.on('message', async message =>{
     if(command) command.execute(client, message, args, Discord);
 
     if(cmd.length == 0) return;
-    if(cmd.includes(guildPrefix)) return;
     if(!command){
         return message.lineReply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
