@@ -5,10 +5,10 @@ module.exports = {
     name: 'help',
     async execute(client, message, args, Discord){
 
-        const data = await prefixModel.findOne({ Guild: message.guild.id });
+        const Model = await prefixModel.findOne({ Guild: message.guild.id });
         let Prefix;
-        if(data){
-            Prefix = data.Prefix;
+        if(Model){
+            Prefix = Model.Prefix;
         } else {
             Prefix = config.prefix;
         };
