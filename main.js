@@ -151,7 +151,7 @@ client.on('guildMemberAdd', async (member) =>{
             '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
         ])
         .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
-        well.send(embed);
+        well.send(`<@!${member.user.id}>`, embed);
     })
 
     // const welcome = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🍀・general');
