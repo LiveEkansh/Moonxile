@@ -16,6 +16,7 @@ const prefix = config.prefix;
 module.exports.prefix = prefix;
 
 const Schema = require('./commands/models/welcome');
+const Welcm = require('./commands/models/wembed');
 
 client.models = new Discord.Collection();
 client.commands = new Discord.Collection();
@@ -134,18 +135,28 @@ client.on('guildMemberAdd', async (member) =>{
         })
             .catch(console.error);
     });
+    Welcm.findOne({ Guild: member.guild.id }, async(e, data) =>{
+        if(!data) return;
+        const well = member.guild.channels.cache.get(data.Channel);
+        if(!well) return;
+
+        if(member.user.bot) return;
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
+        .setColor('00FFCC')
+        .setImage("https://cdn.discordapp.com/attachments/855652245025587200/859457356509347870/Welcome.gif")
+        .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
+            '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
+            '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
+        ])
+        .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
+        well.send(embed);
+    })
 
     // const welcome = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🍀・general');
     // if(!welcome) return;
-    // const embed = new Discord.MessageEmbed()
-    // .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
-    // .setColor('00FFCC')
-    // .setImage("https://cdn.discordapp.com/attachments/855652245025587200/859457356509347870/Welcome.gif")
-    // .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
-    //     '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
-    //     '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
-    // ])
-    // .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
+
     // welcome.send(`<@!${member.user.id}>`, embed) 
 });
 

@@ -40,6 +40,9 @@ module.exports = {
             '\u200b',
             '`-` check',
             'Usage : `;;check`',
+            '\u200b',
+            '`-` welcome',
+            'Usage : `;;welcome <on/off>`',
             '\u200b'
         ])
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
