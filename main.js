@@ -9,12 +9,13 @@ mongoose.connect(process.env.MONGO, {
     useUnifiedTopology : true,
     useNewUrlParser : true,
 }).then(console.log('Connected MongoDB'));
-const prefix = require('discord-prefix');
+
 const config = require('./config.json');
-const defaultPrefix = config.prefix;
+const prefix = config.prefix;
 
 const Schema = require('./commands/models/welcome');
 const Welcm = require('./commands/models/wembed');
+const prefixModel = require('./commands/models/prefix');
 
 client.models = new Discord.Collection();
 client.commands = new Discord.Collection();
@@ -44,12 +45,15 @@ client.on('ready', () =>{
     })
 });
 
-client.on('message', message =>{
+client.on('message', async message =>{
 
-    let guildPrefix = prefix.getPrefix(message.guild.id);
-    if(!guildPrefix) guildPrefix = defaultPrefix;
-
-    module.exports.guildPrefix = guildPrefix;
+    const data = await prefixModel.findOne({ Guild: message.guild.id });
+    let Prefix;
+    if(data){
+        Prefix = data.Prefix;
+    } else {
+        Prefix = prefix;
+    };
 
     if(message.content.startsWith('!greroll') || message.content.startsWith('g!reroll') || message.content.startsWith('q!reroll') || message.content.startsWith('m!reroll') || message.content.startsWith('$reroll')){
         const author = message.author;
@@ -65,10 +69,10 @@ client.on('message', message =>{
     if(message.author.bot) return;
      
     if(message.content == '<@!857984815579136030>'){
-         message.channel.send(`My Prefix is \`${guildPrefix}\`.`)
+         message.channel.send(`My Prefix is \`${Prefix}\`.`)
      }
 
-    if(!message.content.startsWith(guildPrefix) || message.author.bot) return;
+    if(!message.content.startsWith(Prefix) || message.author.bot) return;
 
     const args = message.content.slice(guildPrefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
@@ -86,7 +90,7 @@ client.on('message', message =>{
         let reply = `Incorrect usage of command!`;
     
         if (command.usage) {
-            reply += `\nThe proper usage would be: \`${guildPrefix}${command.name} ${command.usage}\``;
+            reply += `\nThe proper usage would be: \`${Prefix}${command.name} ${command.usage}\``;
         }
     
         return message.lineReply(reply);
