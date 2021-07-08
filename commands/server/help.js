@@ -50,7 +50,7 @@ module.exports = {
         message.channel.send(new Discord.MessageEmbed()
             .setAuthor(client.user.username, client.user.displayAvatarURL())
             .setDescription(data)
-            .setFooter(`Requested by ${message.author.tag}`)
+            .setFooter(`Requested by ${message.author.username}`)
             .setColor("00FFCC")
         )
     }
