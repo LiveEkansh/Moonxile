@@ -4,7 +4,7 @@ module.exports = {
     usage: "[@user]",
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`.')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.')
         };
         message.delete();
         const user = message.mentions.users.first() || message.author;

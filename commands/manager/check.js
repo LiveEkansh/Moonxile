@@ -4,7 +4,7 @@ module.exports = {
     name: 'check',
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_CHANNELS')){
-            return message.reply('Missing Permissions `MANAGE_CHANNELS`')
+            return message.lineReply('Missing Permissions `MANAGE_CHANNELS`')
         };
 
         db.findOne({ Guild: message.guild.id }, async(err, data)=>{

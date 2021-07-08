@@ -5,7 +5,7 @@ module.exports = {
     execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
-            return message.reply('Incorrect Usage : `;;unmute <@user>`')
+            return message.lineReply('Incorrect Usage : `;;unmute <@user>`')
         }
         const role = message.guild.roles.cache.find(r => r.name == '・muted');
         if(!role) return;

@@ -7,17 +7,17 @@ module.exports = {
     usage: '<@user> <donation>',
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
 
         const member = message.mentions.members.first();
         if(member.user.bot){
-            return message.reply('The user mentioned is a bot')
+            return message.lineReply('The user mentioned is a bot')
         };
 
         const donation = args.slice(1).join(' ');
         if(!member || !donation){
-            return message.reply('Invalid Usage : `;;donate <@user> <donation>`')
+            return message.lineReply('Invalid Usage : `;;donate <@user> <donation>`')
         };
 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
@@ -44,7 +44,7 @@ module.exports = {
         });
         const role = message.guild.roles.cache.find(r => r.name == '・donator');
         if(!role){
-            return message.reply('No Donator role found!')
+            return message.lineReply('No Donator role found!')
         };
         const channel = message.guild.channels.cache.get('857633390269431818');
         member.roles.add(role).catch(console.error);

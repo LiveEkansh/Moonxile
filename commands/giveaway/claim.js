@@ -7,17 +7,17 @@ module.exports = {
     usage: '<@user> <reward>',
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`.') // check permissions for user
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.') // check permissions for user
         };
         message.delete();
 
         const member = message.mentions.members.first() //|| await message.guild.members.fetch(args[0]).catch(() => null);
         if(member.user.bot){
-            return message.reply('The user mentioned is a bot.') // ignore bots
+            return message.lineReply('The user mentioned is a bot.') // ignore bots
         };
         const reward = args.slice(1).join(' ');
         if(!member || !reward){
-            return message.reply('Invalid Usage : `;;claim @user <reward>`')
+            return message.lineReply('Invalid Usage : `;;claim @user <reward>`')
         };
         // database 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{

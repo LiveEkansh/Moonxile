@@ -5,7 +5,7 @@ module.exports = {
     usage: "<#channel>",
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
         
         const channel = message.mentions.channels.first() || message.channel;

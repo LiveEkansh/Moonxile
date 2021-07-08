@@ -4,12 +4,12 @@ module.exports = {
     usage: '<@user>',
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         }
         
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
-            return message.reply('Incorrect Usage : `;;winner @user`')
+            return message.lineReply('Incorrect Usage : `;;winner @user`')
         };
 
         message.delete();

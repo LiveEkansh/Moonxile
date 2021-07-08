@@ -10,13 +10,13 @@ module.exports = {
             });
         };
         if(num > 3600){
-            return message.reply('Slowmode cannot last more than 1 hour!')
+            return message.lineReply('Slowmode cannot last more than 1 hour!')
         };
         if(num < 1){
-            return message.reply('Slowmode must be more than 1 second!')
+            return message.lineReply('Slowmode must be more than 1 second!')
         };
         if(isNaN(num)){
-            return message.reply('Enter a valid Number!')
+            return message.lineReply('Enter a valid Number!')
         };
         message.channel.setRateLimitPerUser(parseInt(num));
         message.channel.send(`**<#${message.channel.id}>** now has a slowmode of **${num}** seconds!`)

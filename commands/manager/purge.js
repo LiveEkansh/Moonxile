@@ -4,7 +4,7 @@ module.exports = {
     usage: '<number>',
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
         const num = parseInt(args[0]);
         if(num < 1 || num > 100){

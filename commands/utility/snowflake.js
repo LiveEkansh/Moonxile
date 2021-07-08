@@ -9,11 +9,11 @@ module.exports = {
         const id1 = args[0];
         const id2 = args[1];
         if(!id2 || !id1){
-            return message.reply(`Incorrect usage : \`;;snowflake <ID1> <ID2>\``)
+            return message.lineReply(`Incorrect usage : \`;;snowflake <ID1> <ID2>\``)
         };
 
         if(isNaN(id1) || isNaN(id2)){
-            return message.reply(`Enter a valid ID`)
+            return message.lineReply(`Enter a valid ID`)
         };
 
         const diff1 = await SnowflakeUtil.deconstruct(id1);

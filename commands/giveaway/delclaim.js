@@ -6,15 +6,15 @@ module.exports = {
     usage: '<@user/ID> <claim_number>',
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
-            return message.reply('Missing Permissions `MANAGE_MESSAGES`.')
+            return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.')
         };
         
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(member.user.bot){
-            return message.reply('The user mentioned is a bot.')
+            return message.lineReply('The user mentioned is a bot.')
         };
         if(!member){
-            return message.reply('Invalid Usage : `;;delclaim @user <claim-number>`')
+            return message.lineReply('Invalid Usage : `;;delclaim @user <claim-number>`')
         };
         db.findOne({ guildid : message.guild.id, user: member.user.id}, async(err,data) => {
             if(err) throw err;

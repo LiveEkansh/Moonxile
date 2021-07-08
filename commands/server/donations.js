@@ -7,7 +7,7 @@ module.exports = {
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
         if(member.user.bot){
-            return message.reply('The user is a bot.')
+            return message.lineReply('The user is a bot.')
         };
 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{

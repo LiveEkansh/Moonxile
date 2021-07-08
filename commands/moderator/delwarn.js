@@ -10,7 +10,7 @@ module.exports = {
         };
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
-            return message.reply('Invalid Usage : `;;delwarn <@user> <warnID>`')
+            return message.lineReply('Invalid Usage : `;;delwarn <@user> <warnID>`')
         };
         await db.findOne({ guildid : message.guild.id, user: member.user.id}, async(err,data) => {
             if(err) throw err;

@@ -2,7 +2,7 @@ module.exports = {
     name: 'staff',
     execute(client, message, args, Discord){
         if(!message.member.hasPermission('ADMINISTRATOR')){
-            return message.reply('Missing Permissions `ADMINISTRATOR`')
+            return message.lineReply('Missing Permissions `ADMINISTRATOR`')
         };
 
         const roles = [
