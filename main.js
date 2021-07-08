@@ -82,15 +82,15 @@ client.on('message', message =>{
         return message.lineReply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
 
-    // if (command.args && !args.length) {
-    //     let reply = `You didn't provide any arguments, ${message.author}!`;
+    if (command.args && !args.length) {
+        let reply = `Incorrect usage of command!`;
     
-    //     if (command.usage) {
-    //         reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-    //     }
+        if (command.usage) {
+            reply += `\nThe proper usage would be: \`${guildPrefix}${command.name} ${command.usage}\``;
+        }
     
-    //     return message.channel.send(reply);
-    // };
+        return message.lineReply(reply);
+    };
 });
 
 client.on('presenceUpdate', async (oldPresence, newPresence) => {
