@@ -69,7 +69,7 @@ client.on('message', async message =>{
     if(message.author.bot) return;
      
     if(message.content == '<@!857984815579136030>'){
-         message.channel.send(`My Prefix is \`${Prefix}\`.`)
+         message.lineReply(`My Prefix is \`${Prefix}\`.`)
      }
     
     // COMMAND HANDLER:-
