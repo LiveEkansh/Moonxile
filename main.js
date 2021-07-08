@@ -65,12 +65,12 @@ client.on('message', message =>{
     if(message.author.bot) return;
      
     if(message.content == '<@!857984815579136030>'){
-         message.channel.send('Prefix - `;;`. Commands - `;;help`.')
+         message.channel.send(`My Prefix is \`${guildPrefix}\`.`)
      }
 
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(!message.content.startsWith(guildPrefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = message.content.slice(guildPrefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
     const command = client.commands.get(cmd) || client.commands.find(cd => cd.aliases && cd.aliases.includes(cmd));
