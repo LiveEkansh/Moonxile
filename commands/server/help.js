@@ -1,16 +1,18 @@
 const config = require('../../config.json');
-const prefix = require('discord-prefix');
+const prefixModel = require('../models/prefix');
 
 module.exports = {
     name: 'help',
-    execute(client, message, args, Discord){
+    async execute(client, message, args, Discord){
 
+        const data = await prefixModel.findOne({ Guild: message.guild.id });
         let Prefix;
-        if(prefix.getPrefix(message.guild.id)){
-            Prefix = prefix.getPrefix(message.guild.id);
+        if(data){
+            Prefix = data.Prefix;
         } else {
-            Prefix = config.prefix;
+            Prefix = ';;';
         };
+        
 
         const embed = new Discord.MessageEmbed()
         .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${Prefix}`)
