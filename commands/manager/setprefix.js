@@ -5,6 +5,9 @@ module.exports = {
     args: true,
     usage: '<newPrefix>',
     async execute(client, message, args, Discord){
+        if(!message.member.hasPermission('MANAGE_GUILD')){
+            return message.lineReply('Missing Permissions `Manage Server`')
+        };
         const data = await db.findOne({ Guild: message.guild.id });
         
         const pre = args[0];
