@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('discord-reply');
 const client = new Discord.Client();
 const fs = require('fs');
 
@@ -73,7 +74,7 @@ client.on('message', message =>{
     if(cmd.length == 0) return;
     if(cmd.includes(prefix)) return;
     if(!command){
-        return message.reply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
+        return message.lineReply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
 
     // if (command.args && !args.length) {
