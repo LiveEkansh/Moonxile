@@ -180,7 +180,7 @@ module.exports = {
             return message.channel.send(`Couldn't find a command with the name or alias, \`${name}\``);
         };
 
-        data.push(`Command: **${name}**\n`);
+        data.push(`Command: **${command.name}**\n`);
 
         if(command.aliases) data.push(`Aliases: **${command.aliases.join('**, **')}**\n`);
         if(command.usage) data.push(`Usage: **${prefix}${command.name} ${command.usage}**\n`);
