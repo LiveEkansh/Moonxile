@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGO, {
     useUnifiedTopology : true,
     useNewUrlParser : true,
 }).then(console.log('Connected MongoDB'));
-
+const prefix = require('discord-prefix');
 const config = require('./config.json');
 const defaultPrefix = config.prefix;
 
