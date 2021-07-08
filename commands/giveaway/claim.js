@@ -12,12 +12,13 @@ module.exports = {
         message.delete();
 
         const member = message.mentions.members.first() //|| await message.guild.members.fetch(args[0]).catch(() => null);
-        if(member.user.bot){
-            return message.lineReply('The user mentioned is a bot.') // ignore bots
-        };
+        
         const reward = args.slice(1).join(' ');
         if(!member || !reward){
             return message.lineReply('Invalid Usage : `;;claim @user <reward>`')
+        };
+        if(member.user.bot){
+            return message.lineReply('The user mentioned is a bot.') // ignore bots
         };
         // database 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{

@@ -11,6 +11,9 @@ module.exports = {
         if(!member){
             return message.lineReply('Incorrect Usage : `;;winner @user`')
         };
+        if(member.user.bot){
+            return message.lineReply('The user mentioned is a bot.') // ignore bots
+        };
 
         message.delete();
 
