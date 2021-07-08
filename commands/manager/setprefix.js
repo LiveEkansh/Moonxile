@@ -29,6 +29,8 @@ module.exports = {
                 Guild: message.guild.id
             })
             newData.save();
+
+            message.channel.send(`Successfully set prefix to \`${pre}\`.`)
         }
     }
 }
