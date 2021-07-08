@@ -8,7 +8,7 @@ module.exports = {
             return message.lineReply('Missing Permissions `MANAGE_CHANNELS`')
         };
 
-        const toggle = args[1];
+        const toggle = args[0];
         if(!toggle){
             return message.lineReply('Incorrect Usage : `;;welcome <on|off>`')
         };
