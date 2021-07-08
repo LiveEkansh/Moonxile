@@ -5,7 +5,8 @@ module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
         const embed = new Discord.MessageEmbed()
-        .setTitle(`🌙・Prefix - ${prefix}`)
+        .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${prefix}`)
+        .setDescription(`To change the prefix use \`${prefix}setprefix\``)
         .setColor('00ffcc')
 
         .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`')
