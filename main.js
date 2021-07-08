@@ -75,7 +75,7 @@ client.on('message', async message =>{
     // COMMAND HANDLER:-
     if(!message.content.startsWith(Prefix) || message.author.bot) return;
 
-    const args = message.content.slice(guildPrefix.length).split(/ +/);
+    const args = message.content.slice(Prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
     const command = client.commands.get(cmd) || client.commands.find(cd => cd.aliases && cd.aliases.includes(cmd));
