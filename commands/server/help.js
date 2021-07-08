@@ -5,7 +5,7 @@ module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Prefix - ${prefix}`, message.author.displayAvatarURL( {dynamic: true} ))
+        .setTitle(`🌙・Prefix - ${prefix}`)
         .setColor('00ffcc')
 
         .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`')
@@ -15,7 +15,7 @@ module.exports = {
         .addField('<:1_dotline:857846544128802826> Giveaway', '`no-req`, `drop`, `stay`, `winner`, `claim`, `log`, `donate`, `delclaim`, `deldonate`')
 
         .setThumbnail(message.guild.iconURL( {dynamic: true} ))
-        .setFooter('Developer : .Ninnn.#0008', 'https://cdn.discordapp.com/avatars/838620835282812969/a_1b44f020cd6ecb2fa2ca50993aee132a.gif?size=256&f=.gif')
+        .setFooter('Developer・.Ninnn.#0008', 'https://cdn.discordapp.com/avatars/838620835282812969/a_1b44f020cd6ecb2fa2ca50993aee132a.gif?size=256&f=.gif')
     
         if(!args.length){
             return message.channel.send(embed)
