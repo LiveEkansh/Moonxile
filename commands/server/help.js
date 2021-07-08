@@ -1,19 +1,20 @@
 const config = require('../../config.json');
+const prefix = require('discord-prefix');
 
 module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
 
-        let prefix;
+        let Prefix;
         if(prefix.getPrefix(message.guild.id)){
-            prefix = prefix.get(message.guild.id);
+            Prefix = prefix.get(message.guild.id);
         } else {
-            prefix = config.prefix;
+            Prefix = config.prefix;
         };
 
         const embed = new Discord.MessageEmbed()
-        .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${prefix}`)
-        .setDescription(`To change the prefix use \`${prefix}setprefix\``)
+        .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${Prefix}`)
+        .setDescription(`To change the prefix use \`${Prefix}setprefix\``)
         .setColor('00ffcc')
 
         .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`')
@@ -42,7 +43,7 @@ module.exports = {
         data.push(`**Command: \`${command.name}\`**\n`);
 
         if(command.aliases) data.push(`**Aliases: \`${command.aliases.join('`**, **`')}\`**\n`);
-        if(command.usage) data.push(`**Usage: \`${prefix}${command.name} ${command.usage}\`**\n\n`);
+        if(command.usage) data.push(`**Usage: \`${Prefix}${command.name} ${command.usage}\`**\n\n`);
 
         message.channel.send(new Discord.MessageEmbed()
             .setAuthor(client.user.username, client.user.displayAvatarURL())
