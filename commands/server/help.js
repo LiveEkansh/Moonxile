@@ -7,7 +7,7 @@ module.exports = {
 
         let Prefix;
         if(prefix.getPrefix(message.guild.id)){
-            Prefix = prefix.get(message.guild.id);
+            Prefix = prefix.getPrefix(message.guild.id);
         } else {
             Prefix = config.prefix;
         };
