@@ -1,12 +1,12 @@
 const pagination = require('discord.js-pagination');
-const { prefix } = require('../../main');
+const { guildPrefix } = require('../../main');
 
 module.exports = {
     name: 'help',
     execute(client, message, args, Discord){
         const embed = new Discord.MessageEmbed()
-        .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${prefix}`)
-        .setDescription(`To change the prefix use \`${prefix}setprefix\``)
+        .setTitle(`<a:mx_moon:862697339377680394>・Prefix - ${guildPrefix}`)
+        .setDescription(`To change the prefix use \`${guildPrefix}setprefix\``)
         .setColor('00ffcc')
 
         .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`')
@@ -35,7 +35,7 @@ module.exports = {
         data.push(`**Command: \`${command.name}\`**\n`);
 
         if(command.aliases) data.push(`**Aliases: \`${command.aliases.join('`**, **`')}\`**\n`);
-        if(command.usage) data.push(`**Usage: \`${prefix}${command.name} ${command.usage}\`**\n\n`);
+        if(command.usage) data.push(`**Usage: \`${guildPrefix}${command.name} ${command.usage}\`**\n\n`);
 
         message.channel.send(new Discord.MessageEmbed()
             .setAuthor(client.user.username, client.user.displayAvatarURL())

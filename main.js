@@ -11,9 +11,7 @@ mongoose.connect(process.env.MONGO, {
 }).then(console.log('Connected MongoDB'));
 
 const config = require('./config.json');
-const prefix = config.prefix;
-
-module.exports.prefix = prefix;
+const defaultPrefix = config.prefix;
 
 const Schema = require('./commands/models/welcome');
 const Welcm = require('./commands/models/wembed');
@@ -47,6 +45,12 @@ client.on('ready', () =>{
 });
 
 client.on('message', message =>{
+
+    let guildPrefix = prefix.getPrefix(message.guild.id);
+    if(!guildPrefix) guildPrefix = defaultPrefix;
+
+    module.exports.guildPrefix = guildPrefix;
+
     if(message.content.startsWith('!greroll') || message.content.startsWith('g!reroll') || message.content.startsWith('q!reroll') || message.content.startsWith('m!reroll') || message.content.startsWith('$reroll')){
         const author = message.author;
 

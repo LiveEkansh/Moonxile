@@ -9,6 +9,7 @@
   "author": "Ninja",
   "license": "ISC",
   "dependencies": {
+    "discord-prefix": "^2.0.0",
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.3",
     "discord.js-pagination": "^1.0.3",
