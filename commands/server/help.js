@@ -21,7 +21,7 @@ module.exports = {
         .setDescription(`To change the prefix use \`${Prefix}setprefix\``)
         .setColor('00ffcc')
 
-        .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`')
+        .addField('<:1_dotline:857846544128802826> Manager', '`nuke`, `slowmode`, `purge`, `greet`, `check`, `welcome`, `turnoff`')
         .addField('<:1_dotline:857846544128802826> Moderator', '`warn`, `delwarn`, `clearwarn`, `mute`, `unmute`')
         .addField('<:1_dotline:857846544128802826> Utility', '`embed`, `snowflake`, `info`, `members`')
         .addField('<:1_dotline:857846544128802826> Server', '`claims`, `donations`, `help`, `ping`')
