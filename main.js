@@ -36,13 +36,16 @@ const load_dir = (dirs) =>{
 
 client.on('ready', () =>{
     console.log(`${client.user.tag} is online!`);
-    client.user.setPresence({
-        status: 'idle',
-        activity: {
-            name: `${client.users.cache.size} users in .gg/moonxile!`,
-            type: 'WATCHING'
-        }
-    })
+    
+    const activities = [
+        `${client.users.cache.size} users`,
+        `Made by Nin#1111`,
+        `Nin is cute ^-^`,
+        `Moonxile is always legit!`
+    ];
+
+    let i = 0;
+    setInterval(() => client.user.setActivity(`;;help | ${activities[i++ % activities.length]}`), 10000)
 });
 
 client.on('message', async message =>{
