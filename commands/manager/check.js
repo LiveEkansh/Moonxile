@@ -8,7 +8,9 @@ module.exports = {
         };
 
         db.findOne({ Guild: message.guild.id }, async(err, data)=>{
-            if(!data) return ('No greet channel set, use `;;greet <channel>`.');
+            if(!data){
+                return  message.lineReplyNoMention('No greet channel set, use `;;greet <channel>`.');
+            };
 
             const channel = client.channels.cache.get(data.Channel);
 
