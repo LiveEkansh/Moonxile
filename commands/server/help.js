@@ -1,12 +1,12 @@
 const config = require('../../config.json');
 const prefixModel = require('../models/prefix');
+const { dev } = require('../../main');
 
 module.exports = {
     name: 'help',
     aliases: ['commands'],
     usage: '[command]',
     async execute(client, message, args, Discord){
-        const { dev } = message.client;
         const Model = await prefixModel.findOne({ Guild: message.guild.id });
         let Prefix;
         if(Model){

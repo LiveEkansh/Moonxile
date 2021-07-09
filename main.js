@@ -36,7 +36,7 @@ const load_dir = (dirs) =>{
 
 const dev = client.users.cache.get('838620835282812969');
 
-client.dev = dev;
+module.exports.dev = dev;
 
 client.on('ready', () =>{
     console.log(`${client.user.tag} is online!`);
