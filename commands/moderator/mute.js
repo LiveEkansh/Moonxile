@@ -3,9 +3,10 @@ module.exports = {
     args: 2,
     usage: '<@user> [reason]',
     aliases: ["m"],
-    permissions: 'MANAGE_ROLES',
     execute(client, message, args, Discord){
-        
+        if(!message.member.hasPermission('MANAGE_ROLES')){
+            return message.lineReply('Missing Permissions `MANAGE_ROLES`.')
+        };
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
             return message.lineReply('Incorrect Usage : `;;mute <@user> [reason]`')

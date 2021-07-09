@@ -1,10 +1,11 @@
 module.exports = {
     name: 'staff',
-    permissions: ['ADMINISTRATOR'],
     aliases: ['stafflist'],
     usage: '',
     execute(client, message, args, Discord){
-
+        if(!message.member.hasPermission('ADMINISTRATOR')){
+            return message.lineReply('Missing Permissions `ADMINISTRATOR`.')
+        };
         const roles = [
             'creator',
             'founder',

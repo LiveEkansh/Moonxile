@@ -3,9 +3,11 @@ const db = require('../models/wembed');
 module.exports = {
     name: 'welcome',
     usage: '<#channel>',
-    permissions: ['MANAGE_CHANNELS'],
     aliases: [],
     async execute(client, message, args, Discord){
+        if(!message.member.hasPermission('MANAGE_CHANNELS')){
+            return message.lineReply('Missing Permissions `MANAGE_CHANNELS`.')
+        };
         const ch = message.mentions.channels.first();
         if(ch){
             await db.findOne({ Guild: message.guild.id }, async(err, data) =>{

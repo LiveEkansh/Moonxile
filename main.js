@@ -86,13 +86,6 @@ client.on('message', async message =>{
         return message.lineReply(`Command '${cmd}' not found. \`;;help\` for the list of commands.`)
     };
 
-    if (command.permissions) {
-        const authorPerms = message.channel.permissionsFor(message.author);
-        if (!authorPerms || !authorPerms.has(command.permissions)) {
-            return message.reply(`Missing Permissions \`${command.permissions}\`.`);
-        }
-    };
-
     if (command.args && !args.length) {
         let reply = `Incorrect usage of command!`;
     

@@ -5,8 +5,11 @@ module.exports = {
     name: 'turnoff', 
     args: true,
     usage: '<welcome|greet>',
-    permissions: 'MANAGE_CHANNELS',
     async execute(client, message, args, Discord){
+        if(!message.member.hasPermission('MANAGE_CHANNELS')){
+            return message.lineReply('Missing Permissions `MANAGE_CHANNELS`.')
+        };
+
         let toggle = args[0];
         if(toggle === 'welcome'){
             dbWelcm.findOne({ Guild: message.guild.id }, async(err, data) =>{

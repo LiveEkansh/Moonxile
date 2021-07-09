@@ -2,9 +2,11 @@ module.exports = {
     name: 'slowmode',
     args: true,
     usage: '<seconds>',
-    permissions: ['MANAGE_CHANNELS'],
     aliases: ['sm'],
     execute(client, message, args, Discord){
+        if(!message.member.hasPermission('MANAGE_CHANNELS')){
+            return message.lineReply('Missing Permissions `MANAGE_CHANNELS`.')
+        };        
         const num = parseInt(args[0]);
         if(args[0] === '0' || args[0] == 'off'){
             return message.channel.setRateLimitPerUser(0).then(ch =>{
