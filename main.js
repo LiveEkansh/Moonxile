@@ -45,7 +45,7 @@ client.on('ready', () =>{
     ];
 
     let i = 0;
-    setInterval(() => client.user.setActivity(`;;help | ${activities[i++ % activities.length]}`), 10000)
+    setInterval(() => client.user.setActivity(`;;help | ${activities[i++ % activities.length]}`, {type: "WATCHING"}), 10000)
 });
 
 client.on('message', async message =>{
