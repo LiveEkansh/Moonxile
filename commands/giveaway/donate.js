@@ -48,7 +48,7 @@ module.exports = {
         };
         const channel = message.guild.channels.cache.get('857633390269431818');
         member.roles.add(role).catch(console.error);
-        channel.send(`[${member}] donated **${donation}**!`).then(sentMessage =>{
+        channel.send(`[${member}] donated **${donation.toUpperCase()}**!`).then(sentMessage =>{
             sentMessage.react('<a:mx_tick:858361758539841536>')
         });
 

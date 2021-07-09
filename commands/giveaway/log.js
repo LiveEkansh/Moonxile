@@ -46,7 +46,7 @@ module.exports = {
         member.roles.add(role);
 
         const channel = message.guild.channels.cache.get('857989744701210675')
-        channel.send(`[${member}] claimed **${reward}**! Ask them if legit!`).then(sentMessage =>{
+        channel.send(`[${member}] claimed **${reward.toUpperCase()}**! Ask them if legit!`).then(sentMessage =>{
             sentMessage.react('<a:mx_tick:858361758539841536>')
         });
 
