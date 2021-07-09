@@ -34,6 +34,10 @@ const load_dir = (dirs) =>{
 
 ['data', 'giveaway', 'manager', 'server', 'utility', 'models', 'moderator'].forEach(e => load_dir(e));
 
+const dev = client.users.cache.get('838620835282812969');
+
+client.dev = dev;
+
 client.on('ready', () =>{
     console.log(`${client.user.tag} is online!`);
     client.user.setPresence({

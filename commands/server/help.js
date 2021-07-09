@@ -6,7 +6,7 @@ module.exports = {
     aliases: ['commands'],
     usage: '[command]',
     async execute(client, message, args, Discord){
-
+        const { dev } = message.client;
         const Model = await prefixModel.findOne({ Guild: message.guild.id });
         let Prefix;
         if(Model){
@@ -28,7 +28,7 @@ module.exports = {
         .addField('<:1_dotline:857846544128802826> Giveaway', '`no-req`, `drop`, `stay`, `winner`, `claim`, `log`, `donate`, `delclaim`, `deldonate`')
 
         .setThumbnail(message.guild.iconURL( {dynamic: true} ))
-        .setFooter('Developer・.Ninnn.#0008', 'https://cdn.discordapp.com/avatars/838620835282812969/a_1b44f020cd6ecb2fa2ca50993aee132a.gif?size=256&f=.gif')
+        .setFooter(`Developer・${dev.tag}`, dev.displayAvatarURL())
     
         if(!args.length){
             return message.channel.send(embed)
