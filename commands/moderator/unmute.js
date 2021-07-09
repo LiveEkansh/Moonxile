@@ -1,7 +1,9 @@
 module.exports = {
     name: 'unmute',
     args: true,
+    aliases: [],
     usage: '<@user>',
+    permissions: 'MANAGE_ROLES',
     execute(client, message, args, Discord){
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){

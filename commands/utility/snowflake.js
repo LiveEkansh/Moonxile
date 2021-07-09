@@ -8,7 +8,7 @@ module.exports = {
     async execute(client, message, args, Discord){
         const id1 = args[0];
         const id2 = args[1];
-        if(!id2 || !id1){
+        if(!id2){
             return message.lineReply(`Incorrect usage : \`;;snowflake <ID1> <ID2>\``)
         };
 

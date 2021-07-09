@@ -2,13 +2,15 @@ const db = require('../models/welcome');
 
 module.exports = {
     name: 'greet',
-    usage: "<#channel>",
+    usage: "<#channel|off>",
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
         
         const channel = message.mentions.channels.first() || message.channel;
+
+        const toggle = args[0];
 
         db.findOne({ Guild: message.guild.id }, async(err, data)=>{
             if(data){
@@ -21,6 +23,19 @@ module.exports = {
                 }).save();
             }
             message.channel.send(`Set greet messages on <#${channel.id}>`)
-        })
+        });
+
+        if(toggle === 'off'){
+            await db.findOne({ Guild: message.guild.id }, async(err, data)=>{
+                if(err) throw err;
+                if(data){
+                    await db.findOneAndDelete({ Guild: message.guild.id });
+
+                    message.lineReplyNoMention('Greet messages disabled.')
+                } else {
+                    message.lineReplyNoMention('Greet messages are not enabled!')
+                }
+            })
+        }
     }
 }

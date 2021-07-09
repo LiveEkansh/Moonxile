@@ -2,6 +2,8 @@ module.exports = {
     name: 'slowmode',
     args: true,
     usage: '<seconds>',
+    permissions: ['MANAGE_CHANNELS'],
+    aliases: ['sm'],
     execute(client, message, args, Discord){
         const num = parseInt(args[0]);
         if(args[0] === '0' || args[0] == 'off'){

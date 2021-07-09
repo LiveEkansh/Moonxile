@@ -1,7 +1,7 @@
 module.exports = {
     name: 'members',
     aliases: ["mc"],
-    usage: '_ _',
+    usage: '',
     execute(client, message, args, Discord){
         const totalCount = message.guild.memberCount;
         const botCount = message.guild.members.cache.filter(member => member.user.bot).size;

@@ -3,28 +3,28 @@ const db = require('../models/wembed');
 module.exports = {
     name: 'welcome',
     usage: '<on/off>',
+    permissions: ['MANAGE_CHANNELS'],
+    aliases: [],
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_CHANNELS')){
-            return message.lineReply('Missing Permissions `MANAGE_CHANNELS`')
-        };
 
         const toggle = args[0];
-        if(!toggle){
-            return message.lineReply('Incorrect Usage : `;;welcome <on|off>`')
+        const ch = message.mentions.channels.first();
+        if(!toggle || !ch){
+            return message.lineReply('Incorrect Usage : `;;welcome <#channel|off>`')
         };
 
-        if(toggle === 'on'){
+        if(ch){
             await db.findOne({ Guild: message.guild.id }, async(err, data) =>{
                 if(data){
-                    data.Channel = '859389667567992842';
+                    data.Channel = ch.id;
                     data.save();
                 } else {
                     new db({
                         Guild: message.guild.id,
-                        Channel: '859389667567992842'
+                        Channel: ch.id
                     }).save();
                 }
-                message.channel.send(`Welcome embed toggled **ON** [Channel: <#859389667567992842>]`);
+                message.channel.send(`Welcome embed toggled **ON** [Channel: <#${ch.id}>]`);
                 
             });
             return;
@@ -34,13 +34,15 @@ module.exports = {
             await db.findOne({ Guild: message.guild.id }, async(err, data) =>{
                 if(err) throw err;
                 if(data){
-                    await db.findOneAndDelete({ Guild: message.guild.id, Channel: '859389667567992842'});
+                    await db.findOneAndDelete({ Guild: message.guild.id });
                     message.channel.send(`Welcome embed toggled **OFF**`)
                 } else {
                     message.channel.send(`Welcome embed is toggled OFF, use \`;;welcome on\`.`)
                 }
             });
             return;
+        } else {
+            message.lineReplyNoMention('Incorrect Usage : `;;welcome <#channel|off>`')
         }
     }
 }

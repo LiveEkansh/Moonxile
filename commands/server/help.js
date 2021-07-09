@@ -3,6 +3,8 @@ const prefixModel = require('../models/prefix');
 
 module.exports = {
     name: 'help',
+    aliases: ['commands'],
+    usage: '[command]',
     async execute(client, message, args, Discord){
 
         const Model = await prefixModel.findOne({ Guild: message.guild.id });

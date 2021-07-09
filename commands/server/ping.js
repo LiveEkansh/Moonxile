@@ -1,7 +1,7 @@
 module.exports = {
     name: 'ping',
-    description: 'Bot\'s latency',
-    
+    aliases: [],
+    usage: '',    
     execute(client, message, args){
         message.channel.send(client.ws.ping + ' ms')
     }
