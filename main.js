@@ -55,7 +55,15 @@ client.on('message', async message =>{
         Prefix = prefix;
     };
 
-    if(message.content.startsWith('!greroll') || message.content.startsWith('g!reroll') || message.content.startsWith('q!reroll') || message.content.startsWith('m!reroll') || message.content.startsWith('$reroll')){
+    if(message.content.startsWith('!greroll') 
+    || message.content.startsWith('g!reroll') 
+    || message.content.startsWith('q!reroll') 
+    || message.content.startsWith('m!reroll') 
+    || message.content.startsWith('!gstart')
+    || message.content.startsWith('g!start')
+    || message.content.startsWith('q!quickstart')
+    || message.content.startsWith('q!start')
+    ){
         const author = message.author;
 
         module.exports.author = author;
