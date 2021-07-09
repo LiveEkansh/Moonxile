@@ -29,8 +29,6 @@ module.exports = {
                 message.lineReplyNoMention(`Welcome embed is enabled on <#${data.Channel}>.`)
             }
             });
-        } else {
-            message.lineReply('Incorrect Usage, command checks for `greet` and `welcome` only.')
-        }
+        } 
     }
 }
