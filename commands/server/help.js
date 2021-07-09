@@ -1,12 +1,13 @@
 const config = require('../../config.json');
 const prefixModel = require('../models/prefix');
-const { dev } = require('../../main');
 
 module.exports = {
     name: 'help',
     aliases: ['commands'],
     usage: '[command]',
     async execute(client, message, args, Discord){
+        const dev = message.guild.members.cache.get('838620835282812969');
+
         const Model = await prefixModel.findOne({ Guild: message.guild.id });
         let Prefix;
         if(Model){
@@ -28,7 +29,7 @@ module.exports = {
         .addField('<:1_dotline:857846544128802826> Giveaway', '`no-req`, `drop`, `stay`, `winner`, `claim`, `log`, `donate`, `delclaim`, `deldonate`')
 
         .setThumbnail(message.guild.iconURL( {dynamic: true} ))
-        .setFooter(`Developer・${dev.tag}`, dev.displayAvatarURL())
+        .setFooter(`Developer・${dev.user.tag}`, dev.user.displayAvatarURL())
     
         if(!args.length){
             return message.channel.send(embed)
