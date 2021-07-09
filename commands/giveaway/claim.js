@@ -13,7 +13,7 @@ module.exports = {
 
         const member = message.mentions.members.first() //|| await message.guild.members.fetch(args[0]).catch(() => null);
         
-        const reward = args.slice(1).join(' ');
+        const reward = args.slice(1).join(' ').toUpperCase();
         if(!member || !reward){
             return message.lineReply('Invalid Usage : `;;claim @user <reward>`')
         };
@@ -48,7 +48,7 @@ module.exports = {
         member.roles.add(role);
 
         const channel = message.guild.channels.cache.get('857989744701210675')
-        channel.send(`[${member}] claimed **${reward.toUpperCase()}**! Ask them if legit!`).then(sentMessage =>{
+        channel.send(`[${member}] claimed **${reward}**! Ask them if legit!`).then(sentMessage =>{
             sentMessage.react('<a:mx_tick:858361758539841536>')
         });
 

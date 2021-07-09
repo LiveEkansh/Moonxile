@@ -15,7 +15,7 @@ module.exports = {
             return message.lineReply('The user mentioned is a bot')
         };
 
-        const donation = args.slice(1).join(' ');
+        const donation = args.slice(1).join(' ').toUpperCase();
         if(!member || !donation){
             return message.lineReply('Invalid Usage : `;;donate <@user> <donation>`')
         };
@@ -48,7 +48,7 @@ module.exports = {
         };
         const channel = message.guild.channels.cache.get('857633390269431818');
         member.roles.add(role).catch(console.error);
-        channel.send(`[${member}] donated **${donation.toUpperCase()}**!`).then(sentMessage =>{
+        channel.send(`[${member}] donated **${donation}**!`).then(sentMessage =>{
             sentMessage.react('<a:mx_tick:858361758539841536>')
         });
 
