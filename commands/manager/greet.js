@@ -2,6 +2,7 @@ const db = require('../models/welcome');
 
 module.exports = {
     name: 'greet',
+    args: true,
     usage: "<#channel|off>",
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
