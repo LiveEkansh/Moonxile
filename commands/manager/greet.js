@@ -8,7 +8,7 @@ module.exports = {
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
         
-        const channel = message.mentions.channels.first() || message.channel;
+        const channel = message.mentions.channels.first();
 
         const toggle = args[0];
 
