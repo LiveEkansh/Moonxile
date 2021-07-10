@@ -164,13 +164,13 @@ client.on('guildMemberAdd', async (member) =>{
         const embed = new Discord.MessageEmbed()
         .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
         .setColor('00FFCC')
-        .setImage("https://cdn.discordapp.com/attachments/855652245025587200/859457356509347870/Welcome.gif")
+        .setImage("https://i.imgur.com/H0uUjBc.png")
         .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
             '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
             '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
         ])
         .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
-        well.send(`<@!${member.user.id}>`, embed);
+        well.send(`**Welcome**, <@!${member.user.id}>`, embed);
     })
 
     // const welcome = member.guild.channels.cache.find(ch => ch.name == '₊ʚ🍀・general');
