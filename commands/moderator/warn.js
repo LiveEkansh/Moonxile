@@ -6,8 +6,8 @@ module.exports = {
     aliases: ['w'],
     usage: '<@user> <reason>',
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '୨・trial mod')){
-            return message.channel.send('Must have `@୨・trial mod` or above to execute this command')
+        if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '・trial moderator')){
+            return message.lineReplyNoMention('Must have `@・trial moderator` or above to execute this command')
         };
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
@@ -53,14 +53,7 @@ module.exports = {
                 .setColor("RED")
             ).catch(console.error);
         await message.channel.send(new Discord.MessageEmbed()
-            .setAuthor('Member Warned!', message.guild.iconURL({ dynamic:true }))
-            .addFields(
-                {name: 'Member', value: `**${member.user.tag}**`},
-                {name: 'Moderator', value: `**${message.author.tag}**`},
-                {name: 'Reason', value: reason}
-            )
-            .setThumbnail(member.user.displayAvatarURL( {dynamic:true} ))
-            .setFooter('Warned at')
+            .setDescription(`***${member.user.tag} has been warned! | Reason : ${reason}***`)
             .setTimestamp()
             .setColor("RED")
         );

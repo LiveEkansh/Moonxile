@@ -3,6 +3,6 @@ module.exports = {
     aliases: [],
     usage: '',    
     execute(client, message, args){
-        message.channel.send(client.ws.ping + ' ms')
+        message.lineReplyNoMention(client.ws.ping + ' ms')
     }
 }

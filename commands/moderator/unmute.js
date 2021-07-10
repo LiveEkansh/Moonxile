@@ -22,10 +22,7 @@ module.exports = {
             }
         });
         message.channel.send(new Discord.MessageEmbed()
-        .setTitle('Member Unmuted')
-        .setDescription(`Member : **${member.user.tag}**\nModerator : **${message.author.tag}**`)
-        .setFooter('Unmuted at')
-        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+        .setDescription(`***${member.user.tag} has been unmuted by ${message.author.tag}***`)
         .setTimestamp()
         .setColor('BLUE')
         )

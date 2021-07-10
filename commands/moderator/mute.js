@@ -29,12 +29,9 @@ module.exports = {
         });
 
         const embed = new Discord.MessageEmbed()
-        .setTitle('Member Muted')
-        .setDescription(`Member : **${member.user.tag}**\nModerator : **${message.author.tag}**\nReason : ${reason}`)
-        .setFooter('Muted at')
-        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+        .setDescription(`***${member.user.tag} has been muted by ${message.author.tag} | Reason : ${reason}***`)
         .setTimestamp()
-        .setColor('RED')
+        .setColor("RED")
 
         message.channel.send(embed)
     }
