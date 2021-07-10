@@ -9,7 +9,8 @@ module.exports = {
         const user = message.mentions.users.first() || message.author;
         const embed = new Discord.MessageEmbed()
         .setColor('00ffcc')
-        .addField('<:1_tada:857846692233478154> **MOONXILE DROP!**', `
+        .setTitle('<:1_tada:857846692233478154> **MOONXILE DROP!**')
+        .setDescription(`
         <:1_dotline:857846544128802826> Must join with ${user}'s link!
                 
         <:1_info:857846561714208819> **PRO TIP!**
