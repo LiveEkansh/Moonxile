@@ -73,6 +73,7 @@ client.on('message', async message =>{
     }
     if(message.content.startsWith('🎉 The new winner is ') || message.content.startsWith('Congratulations ') || message.content.startsWith('**Congratulations ') || message.content.startsWith('🎉 New winner(s): ')){
         if(!message.author.bot) return;
+        if(message.author.id === '716390085896962058') return;
         client.commands.get('thegiveawaybotmsg').execute(client, message, Discord);
     };
 
