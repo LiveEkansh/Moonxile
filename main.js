@@ -49,6 +49,8 @@ client.on('ready', () =>{
 });
 
 client.on('message', async message =>{
+    if(!message.guild) return;
+    if(message.channel.type === 'dm') return;
 
     const data = await prefixModel.findOne({ Guild: message.guild.id });
     let Prefix;
