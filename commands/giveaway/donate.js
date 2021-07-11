@@ -49,7 +49,7 @@ module.exports = {
         const channel = message.guild.channels.cache.get('857633390269431818');
         member.roles.add(role).catch(console.error);
         channel.send(`[${member}] donated **${donation}**!`).then(sentMessage =>{
-            sentMessage.react('<a:mx_tick:858361758539841536>')
+            sentMessage.react('<a:mx_trophy:863765662346641409>')
         });
 
         message.channel.send(`Donation by **${member.user.tag}** logged in <#857633390269431818>!`)
