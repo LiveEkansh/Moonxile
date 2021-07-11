@@ -59,5 +59,8 @@ module.exports = {
 <:1_dots:857846478587428904> <#857633375543885884> for +3s claim time!
 **・━━━━━━━━━━━━━━━━━━━━━━━━━━━・**
 ╰<:1_sign:857846611397050369> Stay in **Moonxile** for more!`)
+        .then(sentMessage =>{
+            sentMessage.react('<a:mx_trophy:863765662346641409>')
+        })
     }
 }
