@@ -1,18 +1,26 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+
 module.exports = {
     name: 'winner',
-    args: true,
-    usage: '<@user>',
-    execute(client, message, args, Discord){
+    description: 'Claim Template [No Log]',
+    usage: '<user>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         }
         
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!member){
-            return message.lineReply('Incorrect Usage : `;;winner @user`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}winner <user>\``)
         };
         if(member.user.bot){
-            return message.lineReply('The user mentioned is a bot.') // ignore bots
+            return message.lineReply('The user mentioned is a bot') // ignore bots
         };
 
         message.delete();

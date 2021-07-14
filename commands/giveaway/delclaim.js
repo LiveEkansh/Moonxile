@@ -1,9 +1,16 @@
-const db = require('../models/c-schema');
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+const db = require('../../models/claims');
 
 module.exports = {
     name: 'delclaim',
-    args: 2,
-    usage: '<@user/ID> <claim_number>',
+    description: 'Delete a user\'s claim with ID',
+    usage: '<user> <id>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.')
@@ -14,17 +21,17 @@ module.exports = {
             return message.lineReply('The user mentioned is a bot.')
         };
         if(!member){
-            return message.lineReply('Invalid Usage : `;;delclaim @user <claim-number>`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}delclaim <user> <ID>\``)
         };
         db.findOne({ guildid : message.guild.id, user: member.user.id}, async(err,data) => {
             if(err) throw err;
             if(data) {
                 let number = parseInt(args[1]) - 1
                 data.content.splice(number, 1)
-                message.channel.send(`Deleted the Claim with ID \`${args[1]}\``)
+                message.lineReplyNoMention(`Deleted the Claim with ID \`${args[1]}\``)
                 data.save()
             } else {
-                message.channel.send('User has no claims.')
+                message.lineReplyNoMention('User has no claims')
             }
         })
     }

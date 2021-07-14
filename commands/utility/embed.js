@@ -1,10 +1,18 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+
 module.exports = {
     name: 'embed',
-    args: true,
+    description: 'Embeds a message',
     usage: '<description>',
-    execute(client, message, args, Discord){
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
         if(!args[0]){
-            return message.channel.send('Incorrect Usage : `;;embed <description>`')
+            return message.channel.send(`Incorrect Usage, \`${prefix}embed <description>\``)
         };
         const embed = new Discord.MessageEmbed()
         .setDescription(args.join(' '))

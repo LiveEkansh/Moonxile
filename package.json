@@ -1,21 +1,20 @@
 {
-  "name": "moonxile-bot",
+  "name": "moonxile",
   "version": "1.0.0",
-  "description": "Moonxile Bot",
+  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ninja",
+  "author": "Nin",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^7.4.1",
+    "ascii-table": "^0.0.9",
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.3",
-    "discord.js-pagination": "^1.0.3",
-    "fs": "0.0.1-security",
+    "fs": "^0.0.1-security",
+    "glob": "^7.1.7",
     "moment": "^2.29.1",
-    "mongoose": "^5.12.14",
-    "y": "^0.3.2"
+    "mongoose": "^5.13.2"
   }
 }

@@ -1,10 +1,15 @@
-const db = require('../models/c-schema');
-const moment = require('moment');
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
 
 module.exports = {
     name: 'claim',
-    args: 2,
-    usage: '<@user> <reward>',
+    description: 'Claim Template with log',
+    usage: '<user> <reward>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.') // check permissions for user
@@ -15,10 +20,10 @@ module.exports = {
         
         const reward = args.slice(1).join(' ').toUpperCase();
         if(!member || !reward){
-            return message.lineReply('Invalid Usage : `;;claim @user <reward>`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}claim <user> <reward>\``)
         };
         if(member.user.bot){
-            return message.lineReply('The user mentioned is a bot.') // ignore bots
+            return message.lineReply('The user mentioned is a bot') // ignore bots
         };
         // database 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{

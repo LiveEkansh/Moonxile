@@ -1,15 +1,23 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+
 module.exports = {
     name: 'members',
-    aliases: ["mc"],
-    usage: '',
-    execute(client, message, args, Discord){
+    description: "Member count of a server",
+    aliases: ['mc'],
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
         const totalCount = message.guild.memberCount;
         const botCount = message.guild.members.cache.filter(member => member.user.bot).size;
         const memberCount = message.guild.members.cache.filter(member => !member.user.bot).size;
 
             const embed = new Discord.MessageEmbed()
             .setAuthor(message.guild.name, message.guild.iconURL( {dynamic: true} ))
-            .setDescription(`\`\`\`css\nTotal   : ${totalCount}\nMembers : ${memberCount}\nBots    : ${botCount}\`\`\``)
+            .setDescription(`\`\`\`css\n✅ Total   : ${totalCount}\n👪 Members : ${memberCount}\n🤖 Bots    : ${botCount}\`\`\``)
             .setTimestamp()
             .setColor('00ffcc')
 

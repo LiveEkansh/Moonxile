@@ -1,10 +1,16 @@
-const db = require('../models/c-schema');
-const moment = require('moment');
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+const db = require('../../models/claims')
 
 module.exports = {
     name: 'log',
-    args: 2,
-    usage: '<@user> <reward>',
+    description: 'Log a user\'s claim to the database without template',
+    usage: '<user> <reward>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions : `MANAGE_MESSAGES`')
@@ -12,11 +18,11 @@ module.exports = {
 
         const member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(() => null);
         if(message.mentions.members.first().bot){
-            return message.lineReply('The user mentioned is a bot.')
+            return message.lineReply('The user mentioned is a bot')
         };
         const reward = args.slice(1).join(' ').toUpperCase();
         if(!member || !reward){
-            return message.lineReply('Invalid Usage : `;;log @user <reward>`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}log <user> <reward>\``)
         };
 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
@@ -49,6 +55,6 @@ module.exports = {
         channel.send(`[${member}] claimed **${reward}**! Ask them if legit!`).then(sentMessage =>{
             sentMessage.react('<a:mx_trophy:863765662346641409>')
         });
-        message.channel.send(`Logged claim for **${member.user.tag}**.`);
+        message.lineReplyNoMention(`Logged claim for **${member.user.tag}**.`);
     }
 }

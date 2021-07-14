@@ -1,7 +1,16 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+
 module.exports = {
     name: 'drop',
-    usage: "[@user]",
-    execute(client, message, args, Discord){
+    description: 'Quick Drop Template [User Support]',
+    usage: '[user]',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`.')
         };

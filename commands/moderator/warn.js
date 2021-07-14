@@ -1,10 +1,16 @@
-const db = require('../models/warnings');
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+const db = require('../../models/warns');
 
 module.exports = {
     name: 'warn',
-    args: true,
-    aliases: ['w'],
-    usage: '<@user> <reason>',
+    description: 'Warn a user who break rules',
+    usage: '<user> <reason>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '・trial moderator')){
             return message.lineReplyNoMention('Must have `@・trial moderator` or above to execute this command')
@@ -14,11 +20,11 @@ module.exports = {
         const reason = args.slice(1).join(' ');
 
         if(!member || !reason){
-            return message.lineReply('Invalid Usage : `;;warn <@user> <reason>`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}warn <user> <reason>\``)
         };
 
         if(member.user.id === message.author.id){
-            return message.lineReply('You cannot warn yourself!')
+            return message.lineReply('<:red_cross:864755062684123146> | You cannot warn yourself!')
         };
 
         await db.findOne({ guildid: message.guild.id, user: member.user.id }, async (err, data)=>{
@@ -53,8 +59,7 @@ module.exports = {
                 .setColor("RED")
             ).catch(console.error);
         await message.channel.send(new Discord.MessageEmbed()
-            .setDescription(`***${member.user.tag} has been warned! | Reason : ${reason}***`)
-            .setTimestamp()
+            .setDescription(`***<:1_tick:864501120628949002> | ${member.user.tag} has been warned! | Reason : ${reason}***`)
             .setColor("RED")
         );
     }

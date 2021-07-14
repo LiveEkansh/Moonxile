@@ -1,8 +1,15 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+
 module.exports = {
     name: 'staff',
-    aliases: ['stafflist'],
-    usage: '',
-    execute(client, message, args, Discord){
+    description: 'Staff List of the server',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
         if(!message.member.hasPermission('ADMINISTRATOR')){
             return message.lineReply('Missing Permissions `ADMINISTRATOR`.')
         };

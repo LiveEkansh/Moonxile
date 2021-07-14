@@ -1,10 +1,16 @@
-const db = require('../models/d-schema');
-const moment = require('moment');
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json');
+const db = require('../../models/donations');
 
 module.exports = {
     name: 'donate',
-    args: 2,
-    usage: '<@user> <donation>',
+    description: 'Logs a donation by a member',
+    usage: '<user> <donation>',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
@@ -17,7 +23,7 @@ module.exports = {
 
         const donation = args.slice(1).join(' ').toUpperCase();
         if(!member || !donation){
-            return message.lineReply('Invalid Usage : `;;donate <@user> <donation>`')
+            return message.lineReply(`Incorrect Usage, \`${prefix}donate <user> <donation>\``)
         };
 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
@@ -52,6 +58,6 @@ module.exports = {
             sentMessage.react('<a:mx_trophy:863765662346641409>')
         });
 
-        message.channel.send(`Donation by **${member.user.tag}** logged in <#857633390269431818>!`)
+        message.lineReplyNoMention(`Donation by **${member.user.tag}** logged in <#857633390269431818>!`)
     }
 }
