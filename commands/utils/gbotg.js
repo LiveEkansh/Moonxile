@@ -3,7 +3,7 @@ const prefix = require('../../config.json');
 const db = require('../../models/donations');
 
 module.exports = {
-    name: '',
+    name: 'gbotg',
     /**
     * @param {Client} client,
     * @param {Message} message,
