@@ -30,6 +30,24 @@ client.on('ready', () => {
 });
 
 client.on('message', message =>{
+    if(message.content.startsWith('!greroll') 
+    || message.content.startsWith('g!reroll') 
+    || message.content.startsWith('q!reroll') 
+    || message.content.startsWith('m!reroll') 
+    || message.content.startsWith('!gstart')
+    || message.content.startsWith('g!start')
+    || message.content.startsWith('q!quickstart')
+    || message.content.startsWith('q!start')
+    ){
+        const author = message.author;
+
+        module.exports.author = author;
+    }
+    if(message.content.startsWith('🎉 The new winner is ') || message.content.startsWith('Congratulations ') || message.content.startsWith('**Congratulations ') || message.content.startsWith('🎉 New winner(s): ')){
+        if(!message.author.bot) return;
+        if(message.author.id === '716390085896962058') return;
+        client.commands.get('gbotg').execute(client, message, Discord);
+    };
     if(message.content === '<@!859270085403344976>') return message.lineReply(`My prefix is \`${prefix}\`.`)
     if(
         message.author.bot ||
