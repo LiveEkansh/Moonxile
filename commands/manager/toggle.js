@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
-const prefix = require('../../config.json');
+const prefix = require('../../config.json').prefix;
 const dbGreet = require('../../models/greet');
 const dbWelcm = require('../../models/welcome');        
 

@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
-const prefix = require('../../config.json');
+const prefix = require('../../config.json').prefix;
 const db = require('../../models/warns');
 
 module.exports = {
