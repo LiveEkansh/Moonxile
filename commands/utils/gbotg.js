@@ -53,7 +53,7 @@ module.exports = {
           }, TotalTime * 1000);
         });
       if(userRoles.includes("・claimed")){
-        return message.channel.send(`${winner.user.tag} has already claimed! Check \`${prefix}claims ${winner.id}\`.`)
+        return message.channel.send(`${winner.user.tag} has already claimed! Check \`;;claims ${winner.id}\`.`)
       }
     }
 }
