@@ -1,6 +1,7 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
 const prefix = require('../../config.json').prefix;
 const db = require('../../models/donations');
+const moment = require('moment');
 
 module.exports = {
     name: 'donate',

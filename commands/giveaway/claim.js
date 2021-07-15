@@ -1,5 +1,7 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
 const prefix = require('../../config.json').prefix;
+const moment = require('moment');
+const db = require('../../models/claims');
 
 module.exports = {
     name: 'claim',
