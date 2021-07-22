@@ -20,7 +20,7 @@ module.exports = {
             return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Cannot clear messages less than `1` and more than `100`')
         };
         
-        const number = parseInt(num + 1);
+        const number = num + 1;
 
         if(num.toLowerCase === 'bots'){
             await message.channel.bulkDelete(
