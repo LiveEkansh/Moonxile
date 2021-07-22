@@ -18,13 +18,13 @@ module.exports = {
         };
 
         const member = message.mentions.members.first();
-        if(member.user.bot){
-            return message.lineReply('The user mentioned is a bot')
-        };
 
         const donation = args.slice(1).join(' ').toUpperCase();
         if(!member || !donation){
             return message.lineReply(`Incorrect Usage, \`${prefix}donate <user> <donation>\``)
+        };
+        if(member.user.bot){
+            return message.lineReply('The user mentioned is a bot')
         };
 
         db.findOne({ guildid: message.guild.id, user: member.user.id }, async(err, data) =>{
