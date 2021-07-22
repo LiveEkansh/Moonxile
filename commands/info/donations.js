@@ -28,7 +28,7 @@ module.exports = {
                     //         `\`${i + 1}\` | **${w.date}**\nDonation : **${w.donation}**\n`
                     //     )
                     // )
-                    .setColor("00ffcc")
+                    .setColor("9933ff")
                     .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                     .setFooter(`${parseInt(data.content.length)} donation(s)`, message.guild.iconURL({ dynamic: true }))
 
@@ -42,7 +42,7 @@ module.exports = {
                 message.lineReplyNoMention(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Donations`)
                 .setDescription(`**No Data Found**`)
-                .setColor('00ffcc')
+                .setColor('9933ff')
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             };

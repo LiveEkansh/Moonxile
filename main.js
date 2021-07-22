@@ -119,7 +119,7 @@ client.on('guildMemberAdd', async (member) =>{
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
-        .setColor('00FFCC')
+        .setColor('9933ff')
         .setImage("https://i.imgur.com/H0uUjBc.png")
         .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
             '<:1_sign:857846611397050369> Make sure to read our <#866879389178396672>',

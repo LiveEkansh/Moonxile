@@ -17,7 +17,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setDescription(args.join(' '))
         .setAuthor(message.guild.name, message.guild.iconURL( {dynamic: true} ))
-        .setColor('00ffcc')
+        .setColor('9933ff')
         .setTimestamp()
 
         message.channel.send(embed)

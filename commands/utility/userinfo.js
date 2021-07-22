@@ -59,7 +59,7 @@ module.exports = {
 
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp()
-        .setColor('00ffcc')
+        .setColor('9933ff')
 
         await message.channel.send(embed)
     }

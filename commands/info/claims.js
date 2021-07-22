@@ -29,7 +29,7 @@ module.exports = {
                     //         `\`${i + 1}\` | **${w.date}**\nReward : **${w.reward}**\n`
                     //     )
                     // )
-                    .setColor("00ffcc")
+                    .setColor("9933ff")
                     .setFooter(`${data.content.length} claim(s)`, message.guild.iconURL({ dynamic: true }))
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 
@@ -47,7 +47,7 @@ module.exports = {
                 message.lineReplyNoMention(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Claims`)
                 .setDescription(`**No Data Found**`)
-                .setColor('00ffcc')
+                .setColor('9933ff')
                 .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
                 )
             }

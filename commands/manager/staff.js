@@ -28,7 +28,7 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.guild.name + ' Staff', message.guild.iconURL())
-        .setColor('00FFCC')
+        .setColor('9933ff')
         .setFooter('Last Updated')
         .setTimestamp()
 

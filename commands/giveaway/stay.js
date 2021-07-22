@@ -17,7 +17,7 @@ module.exports = {
         message.delete();
         const user = message.mentions.users.first() || message.author;
         const embed = new Discord.MessageEmbed()
-        .setColor('00ffcc')
+        .setColor('9933ff')
         .setTitle('<:1_gift:857846495046402088> **GG! STAY IN THAT SERVER!**')
         .setDescription(`
         <:1_dotline:857846544128802826> Only those who joined with ${user}'s link can win.

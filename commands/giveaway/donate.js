@@ -56,7 +56,7 @@ module.exports = {
         const channel = message.guild.channels.cache.get('866879382983147541');
         member.roles.add(role).catch(console.error);
         channel.send(`[${member}] donated **${donation}**!`).then(sentMessage =>{
-            sentMessage.react('<a:mx_trophy:863765662346641409>')
+            sentMessage.react('<a:mw_trophy:867651795169181696>>')
         });
 
         message.lineReplyNoMention(`Donation by **${member.user.tag}** logged in <#866879382983147541>!`)

@@ -19,7 +19,7 @@ module.exports = {
             .setAuthor(message.guild.name, message.guild.iconURL( {dynamic: true} ))
             .setDescription(`\`\`\`css\n✅ Total   : ${totalCount}\n👪 Members : ${memberCount}\n🤖 Bots    : ${botCount}\`\`\``)
             .setTimestamp()
-            .setColor('00ffcc')
+            .setColor('9933ff')
 
         message.channel.send(embed)
     }

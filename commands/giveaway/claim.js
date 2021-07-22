@@ -67,7 +67,7 @@ module.exports = {
 **・━━━━━━━━━━━━━━━━━━━━━━━━━━━・**
 ╰<:1_sign:857846611397050369> Stay in **Moonxile** for more!`)
         .then(sentMessage =>{
-            sentMessage.react('<a:mx_trophy:863765662346641409>')
+            sentMessage.react('<a:mw_trophy:867651795169181696>')
         })
     }
 }
