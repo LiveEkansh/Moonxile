@@ -28,8 +28,7 @@ module.exports = {
                 .filter(m => !m.author.bot)
             ).catch(console.error)
             return message.channel.send(`<:mw_tick:867667518512168960> | Deleted \`bot\` messages!`)
-        };
-
+        } else {
         await message.channel.bulkDelete(
             (await message.channel.messages.fetch({ limit: number }))
             .filter(m => !m.pinned)
@@ -40,5 +39,6 @@ module.exports = {
             message.delete({ timeout: 3000 })
         })
         .catch(console.error);
-    }
+     }
+   }
 }
