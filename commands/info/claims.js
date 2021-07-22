@@ -41,8 +41,8 @@ module.exports = {
                         embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true);
                     });
 
-                        
-                message.lineReplyNoMention(embed)
+                message.channel.startTyping(2);        
+                await message.lineReplyNoMention(embed)
             } else if (!data){
                 message.lineReplyNoMention(new Discord.MessageEmbed()
                 .setTitle(`${member.user.tag}'s Claims`)
