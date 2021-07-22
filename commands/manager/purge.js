@@ -19,16 +19,10 @@ module.exports = {
         if(num < 1 || num > 100){
             return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Cannot clear messages less than `1` and more than `100`')
         };
+        if(isNaN(num)) return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Enter a valid number')
         
         const number = num + 1;
 
-        if(num.toLowerCase === 'bots'){
-            await message.channel.bulkDelete(
-                (await message.channel.messages.fetch({ limit: 100 }))
-                .filter(m => !m.author.bot)
-            ).catch(console.error)
-            return message.channel.send(`<:mw_tick:867667518512168960> | Deleted \`bot\` messages!`)
-        } else {
         await message.channel.bulkDelete(
             (await message.channel.messages.fetch({ limit: number }))
             .filter(m => !m.pinned)
@@ -39,6 +33,6 @@ module.exports = {
             message.delete({ timeout: 3000 })
         })
         .catch(console.error);
-     }
+     
    }
 }
