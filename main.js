@@ -120,7 +120,7 @@ client.on('guildMemberAdd', async (member) =>{
         const embed = new Discord.MessageEmbed()
         .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
         .setColor('9933ff')
-        .setImage("https://i.imgur.com/H0uUjBc.png")
+        .setImage("https://i.imgur.com/n3JWlLk.png")
         .addField(`<a:mx_welcome:859458029111476224>・Welcome to ${member.guild.name}, ${member.user.username}!`, [
             '<:mw_sign:867655009844068383> Make sure to read our <#866879389178396672>',
             '<:mw_announce:867654975446450226> Get yourself some spicy roles from <#866879390167597067>',

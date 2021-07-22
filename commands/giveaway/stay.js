@@ -18,7 +18,7 @@ module.exports = {
         const user = message.mentions.users.first() || message.author;
         const embed = new Discord.MessageEmbed()
         .setColor('9933ff')
-        .setTitle('<:1_gift:857846495046402088> **GG! STAY IN THAT SERVER!**')
+        .setTitle('<:mw_tada:867655074413805578> **GG! STAY IN THAT SERVER!**')
         .setDescription(`
         <:mw_dotline:867654933100232784> Only those who joined with ${user}'s link can win.
                 
@@ -27,7 +27,7 @@ module.exports = {
         <:mw_dots:867654889991831602> Be active in **drops/giveaways** for you to win **NITRO & ROBUX**
                 
         <:mw_sign:867655009844068383> **Stay in channel so you won't miss the giveaway**`)
-        .setImage('https://i.imgur.com/PZyF3Qu.gif')
+        .setImage('https://i.imgur.com/MjChoAC.gifv')
         .setTimestamp()
 
         message.channel.send(embed)
