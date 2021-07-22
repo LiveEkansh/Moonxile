@@ -42,7 +42,7 @@ module.exports = {
       }
   
       let TotalTime = DefaultTime + support + donate + boost;
-      if(member.id === '794059310355185725' || member.id === '838620835282812969') TotalTime = 'Infinite';
+      if(winner.id === '794059310355185725' || winner.id === '838620835282812969') TotalTime = 'Infinite';
   
       message.channel
         .send(
