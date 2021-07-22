@@ -21,6 +21,7 @@ module.exports = {
                 .setAuthor(`${message.guild.name} supporters`, message.guild.iconURL())
                 .setDescription(`${members}\n** **`)
                 .setColor('9933FF')
+                .setFooter('୧🌱・supporter')
             )
         } else if (list.toLowerCase() === 'donators'){
             const members = message.guild.roles.cache.find(r => r.name === '୧🍂・donator').members.map(m => m.user.tag).join('\n');
@@ -28,6 +29,7 @@ module.exports = {
                 .setAuthor(`${message.guild.name} donators`, message.guild.iconURL())
                 .setDescription(`${members}\n** **`)
                 .setColor('9933FF')
+                .setFooter('୧🍂・donator')
             )
         } else if (list.toLowerCase() === 'boosters'){
             const members = message.guild.roles.cache.find(r => r.name === '୧💐・booster').members.map(m => m.user.tag).join('\n');
@@ -35,6 +37,7 @@ module.exports = {
                 .setAuthor(`${message.guild.name} boosters`, message.guild.iconURL())
                 .setDescription(`${members}\n** **`)
                 .setColor('9933FF')
+                .setFooter('୧💐・booster')
             )
         }
     }
