@@ -5,6 +5,7 @@ module.exports = {
     name: 'list',
     description: 'List of supporters/donators/boosters',
     usage: '<supporters|donators|boosters>',
+    hidden: true,
     /**
     * @param {Client} client,
     * @param {Message} message,
