@@ -15,7 +15,7 @@ module.exports = {
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
-        const num = args[0];
+        const num = parseInt(args[0]);
         if(num < 1 || num > 100){
             return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Cannot clear messages less than `1` and more than `100`')
         };
