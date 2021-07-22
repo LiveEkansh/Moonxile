@@ -11,6 +11,8 @@ module.exports = {
     */
     async execute(client, message, args, Discord){
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('Missing Permissions `MANAGE_MESSAGES`');
+        message.delete();
+        
         message.channel.send([
             '╭<:mw_gift:867654903139401729> **MILKY WAY NO REQUIREMENT GIVEAWAY!**',
             '<:mw_dot:867654918188957696><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_line:867654989769080834><:mw_dot:867654918188957696>',  
