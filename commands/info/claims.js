@@ -41,7 +41,7 @@ module.exports = {
                         embed.addField(`${w.date}`, `Reward: **${w.reward}**\nID: **${i + 1}**`, true);
                     });
 
-                message.channel.startTyping(2);        
+                message.channel.startTyping(20);        
                 await message.lineReplyNoMention(embed)
             } else if (!data){
                 message.lineReplyNoMention(new Discord.MessageEmbed()
