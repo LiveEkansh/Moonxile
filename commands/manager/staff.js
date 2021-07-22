@@ -34,7 +34,7 @@ module.exports = {
 
         for (role of roles) {
             const members = message.guild.roles.cache.find(r => r.name === `${role}`).members.map(m => m.user.tag).join('\n');
-            embed.addField(`${role}`, `${members}\n_ _`, true);
+            embed.addField(`${role}`, `${members}\n** **`, true);
           };
           
 
