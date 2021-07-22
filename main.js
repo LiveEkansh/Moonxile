@@ -66,14 +66,14 @@ client.on('message', message =>{
 
 client.on('presenceUpdate', async (oldPresence, newPresence) => {
 
-    const role = newPresence.guild.roles.cache.find(r => r.name == '・supporter');
+    const role = newPresence.guild.roles.cache.find(r => r.name == '୧🌱・supporter');
     if(!role) return;
     const member = newPresence.member
     if(!member) return;
     const activities = member.user.presence.activities[0];
     if(!activities) return;
   
-    if (activities &&  activities.state && (activities.state.includes( ".gg/moonxile" ) || activities.state.includes("discord.gg/moonxile" ) || activities.state.includes("moonxile" ))) {
+    if (activities &&  activities.state && (activities.state.includes( ".gg/milkywaycm" ) || activities.state.includes("discord.gg/milkywaycm" ) || activities.state.includes("milkywaycm" ))) {
       return newPresence.member.roles.add(role)
       .catch(err => {
       console.log(err)
@@ -94,7 +94,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
 
 client.on('guildMemberAdd', async (member) =>{
     if(member.user.bot){
-        const role = member.guild.roles.cache.find(r => r.name === '・bots');
+        const role = member.guild.roles.cache.find(r => r.name === '୧・Bots');
         if(!role) return;
         member.roles.add(role).catch(console.error);
     };
@@ -122,8 +122,8 @@ client.on('guildMemberAdd', async (member) =>{
         .setColor('00FFCC')
         .setImage("https://i.imgur.com/H0uUjBc.png")
         .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
-            '<:1_sign:857846611397050369> Make sure to read our <#857632920089264198>',
-            '<:1_announce:857846579376947220> Get yourself some spicy roles from <#859072030686707763>',
+            '<:1_sign:857846611397050369> Make sure to read our <#866879389178396672>',
+            '<:1_announce:857846579376947220> Get yourself some spicy roles from <#866879390167597067>',
         ])
         .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
         well.send(`**Welcome**, <@!${member.user.id}>`, embed);
