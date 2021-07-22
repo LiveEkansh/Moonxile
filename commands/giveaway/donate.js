@@ -17,7 +17,7 @@ module.exports = {
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
 
-        const member = message.mentions.members.first();
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         const donation = args.slice(1).join(' ').toUpperCase();
         if(!member || !donation){
