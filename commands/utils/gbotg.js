@@ -29,15 +29,15 @@ module.exports = {
      
       const userRoles = winner.roles.cache.map((r) => r.name);
       
-      if (userRoles.includes("・supporter")) {
+      if (userRoles.includes("୧🌱・supporter")) {
         support = 3;
       }
   
-      if (userRoles.includes("・donator")) {
+      if (userRoles.includes("୧🍂・donator")) {
         donate = donates * 5;
       }
       
-      if (userRoles.includes("・booster")) {
+      if (userRoles.includes("୧💐・booster")) {
         boost = 10;
       }
   

@@ -49,16 +49,16 @@ module.exports = {
             }
             data.save();
         });
-        const role = message.guild.roles.cache.find(r => r.name == '・donator');
+        const role = message.guild.roles.cache.find(r => r.name == '୧🍂・donator');
         if(!role){
             return message.lineReply('No Donator role found!')
         };
-        const channel = message.guild.channels.cache.get('857633390269431818');
+        const channel = message.guild.channels.cache.get('866879382983147541');
         member.roles.add(role).catch(console.error);
         channel.send(`[${member}] donated **${donation}**!`).then(sentMessage =>{
             sentMessage.react('<a:mx_trophy:863765662346641409>')
         });
 
-        message.lineReplyNoMention(`Donation by **${member.user.tag}** logged in <#857633390269431818>!`)
+        message.lineReplyNoMention(`Donation by **${member.user.tag}** logged in <#866879382983147541>!`)
     }
 }

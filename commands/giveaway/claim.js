@@ -50,13 +50,13 @@ module.exports = {
             }
             data.save();
         });
-        const role = message.guild.roles.cache.find(r => r.name == '・claimed');
+        const role = message.guild.roles.cache.find(r => r.name == '୧🌺・claimed');
         if(!role) return;
         member.roles.add(role);
 
-        const channel = message.guild.channels.cache.get('857989744701210675')
+        const channel = message.guild.channels.cache.get('866879408982851584')
         channel.send(`[${member}] claimed **${reward}**! Ask them if legit!`).then(sentMessage =>{
-            sentMessage.react('<a:mx_trophy:863765662346641409>')
+            sentMessage.react('<a:mw_trophy:867651795169181696>')
         });
 
         message.channel.send(`╭<:1_tada:857846692233478154> **[${member}] won!** you may ask them if we're **LEGIT**.
