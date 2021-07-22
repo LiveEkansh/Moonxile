@@ -29,7 +29,7 @@ module.exports = {
                     Channel: channel.id
                 }).save();
             }
-            message.channel.send(`<:1_tick:864501120628949002> | Set greet messages on <#${channel.id}>`)
+            message.channel.send(`<:mw_tick:867667518512168960> | Set greet messages on <#${channel.id}>`)
         });
     }
 }

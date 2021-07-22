@@ -31,6 +31,6 @@
 
 //             })
 //         });
-//         await message.lineReplyNoMention(`<:1_tick:864501120628949002> | Reloaded all commands!`)
+//         await message.lineReplyNoMention(`<:mw_tick:867667518512168960> | Reloaded all commands!`)
 //     }
 // }

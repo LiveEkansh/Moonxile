@@ -23,21 +23,21 @@ module.exports = {
         if(!reason) reason == 'Unspecified';
         const role = message.guild.roles.cache.find(r => r.name == '・muted');
         if(!role){
-            return message.lineReply('<:red_cross:864755062684123146> | No Muted role found!')
+            return message.lineReply('<:mw_cross:867667594505224192> | No Muted role found!')
         };
 
         if(member.hasPermission('MANAGE_ROLES')){
-            return message.lineReply('<:red_cross:864755062684123146> | That user is a staff, I can\'t mute them!')
+            return message.lineReply('<:mw_cross:867667594505224192> | That user is a staff, I can\'t mute them!')
         };
 
         member.roles.add(role).catch(err =>{
             if(err){
-                message.channel.send('<:red_cross:864755062684123146> | Failed to mute : `'+ err +'`')
+                message.channel.send('<:mw_cross:867667594505224192> | Failed to mute : `'+ err +'`')
             }
         });
 
         const embed = new Discord.MessageEmbed()
-        .setDescription(`***<:1_tick:864501120628949002> | ${member.user.tag} has been muted by ${message.author.tag} | Reason : ${reason}***`)
+        .setDescription(`***<:mw_tick:867667518512168960> | ${member.user.tag} has been muted by ${message.author.tag} | Reason : ${reason}***`)
         .setColor("RED")
 
         message.channel.send(embed)

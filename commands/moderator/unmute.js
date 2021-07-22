@@ -25,11 +25,11 @@ module.exports = {
         };*/
         member.roles.remove(role).catch(err =>{
             if(err){
-                message.channel.send('<:red_cross:864755062684123146> | Failed to unmute : `'+ err + '`');
+                message.channel.send('<:mw_cross:867667594505224192> | Failed to unmute : `'+ err + '`');
             }
         });
         message.channel.send(new Discord.MessageEmbed()
-        .setDescription(`***<:1_tick:864501120628949002> | ${member.user.tag} has been unmuted by ${message.author.tag}***`)
+        .setDescription(`***<:mw_tick:867667518512168960> | ${member.user.tag} has been unmuted by ${message.author.tag}***`)
         .setColor('BLUE')
         )
     }

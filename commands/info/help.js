@@ -43,7 +43,7 @@ module.exports = {
                     let data = new Object();
 
                     data = {
-                        name: `<:1_dotline:857846544128802826> ${dir.toUpperCase()}`,
+                        name: `<:mw_dotline:867654933100232784> ${dir.toUpperCase()}`,
                         value: cmds.length === 0
                             ? "In Progress"
                             : cmds.join(" ")
@@ -53,7 +53,7 @@ module.exports = {
                 });
 
                 const embed = new MessageEmbed()
-                    .setTitle("<a:hoshi_moon:863681905781637150>・Moonxile Commands")
+                    .setTitle("<a:hoshi_moon:863681905781637150>・Milkyway Commands")
                     .setDescription(`Use \`${prefix}help <command>\` for additional information about a specific command`)
                     .addFields(categories)
                     .setFooter(`Developer・${dev.user.tag}`, dev.user.displayAvatarURL())

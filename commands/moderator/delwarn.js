@@ -24,10 +24,10 @@ module.exports = {
             if(data) {
                 let number = parseInt(args[1]) - 1
                 data.content.splice(number, 1)
-                message.channel.send(`<:1_tick:864501120628949002> | Warning \`#${args[1]}\` deleted for ${member.user.username}.`)
+                message.channel.send(`<:mw_tick:867667518512168960> | Warning \`#${args[1]}\` deleted for ${member.user.username}.`)
                 data.save()
             } else {
-                message.channel.send(`<:red_cross:864755062684123146> | **${member.user.username}** has no warnings.`)
+                message.channel.send(`<:mw_cross:867667594505224192> | **${member.user.username}** has no warnings.`)
             }
         })
     }

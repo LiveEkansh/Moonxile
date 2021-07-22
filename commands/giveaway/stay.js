@@ -20,13 +20,13 @@ module.exports = {
         .setColor('9933ff')
         .setTitle('<:1_gift:857846495046402088> **GG! STAY IN THAT SERVER!**')
         .setDescription(`
-        <:1_dotline:857846544128802826> Only those who joined with ${user}'s link can win.
+        <:mw_dotline:867654933100232784> Only those who joined with ${user}'s link can win.
                 
-        <:1_info:857846561714208819> **LATE? make sure to follow tips below:**
-        <:1_dots:857846478587428904> Be fast coming to giveaway channels because we delete link in a few minutes, putting as above all other servers will help you see the pings easily!
-        <:1_dots:857846478587428904> Be active in **drops/giveaways** for you to win **NITRO & ROBUX**
+        <:mw_info:867654960875307028> **LATE? make sure to follow tips below:**
+        <:mw_dots:867654889991831602> Be fast coming to giveaway channels because we delete link in a few minutes, putting as above all other servers will help you see the pings easily!
+        <:mw_dots:867654889991831602> Be active in **drops/giveaways** for you to win **NITRO & ROBUX**
                 
-        <:1_sign:857846611397050369> **Stay in channel so you won't miss the giveaway**`)
+        <:mw_sign:867655009844068383> **Stay in channel so you won't miss the giveaway**`)
         .setImage('https://i.imgur.com/PZyF3Qu.gif')
         .setTimestamp()
 

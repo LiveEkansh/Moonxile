@@ -24,7 +24,7 @@ module.exports = {
         };
 
         if(member.user.id === message.author.id){
-            return message.lineReply('<:red_cross:864755062684123146> | You cannot warn yourself!')
+            return message.lineReply('<:mw_cross:867667594505224192> | You cannot warn yourself!')
         };
 
         await db.findOne({ guildid: message.guild.id, user: member.user.id }, async (err, data)=>{
@@ -59,7 +59,7 @@ module.exports = {
                 .setColor("RED")
             ).catch(console.error);
         await message.channel.send(new Discord.MessageEmbed()
-            .setDescription(`***<:1_tick:864501120628949002> | ${member.user.tag} has been warned! | Reason : ${reason}***`)
+            .setDescription(`***<:mw_tick:867667518512168960> | ${member.user.tag} has been warned! | Reason : ${reason}***`)
             .setColor("RED")
         );
     }

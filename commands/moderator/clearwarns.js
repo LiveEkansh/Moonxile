@@ -21,9 +21,9 @@ module.exports = {
             if(err) throw err;
             if(data) {
                 await db.findOneAndDelete({ user : user.user.id, guildid: message.guild.id})
-                message.lineReplyNoMention(`<:1_tick:864501120628949002> | Cleared **${user.user.tag}**'s warns`)
+                message.lineReplyNoMention(`<:mw_tick:867667518512168960> | Cleared **${user.user.tag}**'s warns`)
             } else {
-                message.lineReplyNoMention(`<:red_cross:864755062684123146> | **${user.user.tag}** has no warnings.`)
+                message.lineReplyNoMention(`<:mw_cross:867667594505224192> | **${user.user.tag}** has no warnings.`)
             }
         })
     }

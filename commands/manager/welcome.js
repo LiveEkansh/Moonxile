@@ -28,7 +28,7 @@ module.exports = {
                         Channel: ch.id
                     }).save();
                 }
-                message.channel.send(`<:1_tick:864501120628949002> | Welcome embed toggled **ON** [Channel: <#${ch.id}>]`);
+                message.channel.send(`<:mw_tick:867667518512168960> | Welcome embed toggled **ON** [Channel: <#${ch.id}>]`);
                 
             });
         }

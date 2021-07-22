@@ -121,9 +121,9 @@ client.on('guildMemberAdd', async (member) =>{
         .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
         .setColor('9933ff')
         .setImage("https://i.imgur.com/H0uUjBc.png")
-        .addField(`<a:mx_welcome:859458029111476224>・Welcome to Moonxile, ${member.user.username}!`, [
-            '<:1_sign:857846611397050369> Make sure to read our <#866879389178396672>',
-            '<:1_announce:857846579376947220> Get yourself some spicy roles from <#866879390167597067>',
+        .addField(`<a:mx_welcome:859458029111476224>・Welcome to ${member.guild.name}, ${member.user.username}!`, [
+            '<:mw_sign:867655009844068383> Make sure to read our <#866879389178396672>',
+            '<:mw_announce:867654975446450226> Get yourself some spicy roles from <#866879390167597067>',
         ])
         .setFooter(`You are our ${member.guild.memberCount}th member!`, member.guild.iconURL())
         well.send(`**Welcome**, <@!${member.user.id}>`, embed);

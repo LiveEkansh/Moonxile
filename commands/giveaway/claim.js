@@ -59,13 +59,13 @@ module.exports = {
             sentMessage.react('<a:mw_trophy:867651795169181696>')
         });
 
-        message.channel.send(`╭<:1_tada:857846692233478154> **[${member}] won!** you may ask them if we're **LEGIT**.
+        message.channel.send(`╭<:mw_tada:867655074413805578> **[${member}] won!** you may ask them if we're **LEGIT**.
 **・━━━━━━━━━━━━━━━━━━━━━━━━━━━・**
-<:1_info:857846561714208819> **PRO TIP!**
-<:1_dots:857846478587428904> Be quick coming to our giveaway channels because we often delete the invite for the requirement after a few minutes, putting us above all other servers will allow you to be notified much easier!
-<:1_dots:857846478587428904> <#857633375543885884> for +3s claim time!
+<:mw_info:867654960875307028> **PRO TIP!**
+<:mw_dots:867654889991831602> Be quick coming to our giveaway channels because we often delete the invite for the requirement after a few minutes, putting us above all other servers will allow you to be notified much easier!
+<:mw_dots:867654889991831602> <#866879381434400768> for +3s claim time!
 **・━━━━━━━━━━━━━━━━━━━━━━━━━━━・**
-╰<:1_sign:857846611397050369> Stay in **Moonxile** for more!`)
+╰<:mw_sign:867655009844068383> Stay in **Milkyway** for more!`)
         .then(sentMessage =>{
             sentMessage.react('<a:mw_trophy:867651795169181696>')
         })
