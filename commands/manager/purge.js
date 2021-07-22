@@ -15,16 +15,20 @@ module.exports = {
         if(!message.member.hasPermission('MANAGE_MESSAGES')){
             return message.lineReply('Missing Permissions `MANAGE_MESSAGES`')
         };
-        const num = parseInt(args[0]);
+        const num = args[0];
         if(num < 1 || num > 100){
             return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Cannot clear messages less than `1` and more than `100`')
         };
+        
+        const number = parseInt(num + 1);
 
-        if(isNaN(num)){
-            return message.lineReplyNoMention('<:mw_cross:867667594505224192> | Enter a valid number!')
+        if(num.toLowerCase === 'bots'){
+            await message.channel.bulkDelete(
+                (await message.channel.messages.fetch({ limit: 100 }))
+                .filter(m => !m.author.bot)
+            ).catch(console.error)
+            return message.channel.send(`<:mw_tick:867667518512168960> | Deleted \`bot\` messages!`)
         };
-
-        const number = num + 1;
 
         await message.channel.bulkDelete(
             (await message.channel.messages.fetch({ limit: number }))
