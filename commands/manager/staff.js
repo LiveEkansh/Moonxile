@@ -14,16 +14,16 @@ module.exports = {
             return message.lineReply('Missing Permissions `ADMINISTRATOR`.')
         };
         const roles = [
-            'creator',
-            'founder',
-            'co founder',
-            'owner',
-            'co owner',
-            'head administrator',
-            'administrator',
-            'head moderator',
-            'moderator',
-            'trial moderator'
+            '୧🌙・founder',
+            '୧✨・owner',
+            '୧⚡️・co owner',
+            '୧💫・head administrator',
+            '୧⭐️・administrator',
+            '୧🌈・giveaway manager',
+            '୧🌕・senior moderator',
+            '୧🌎・head moderator',
+            '୧🌑・moderator',
+            '୧🪐・trial staff'
         ];
 
         const embed = new Discord.MessageEmbed()
@@ -33,8 +33,8 @@ module.exports = {
         .setTimestamp()
 
         for (role of roles) {
-            const members = message.guild.roles.cache.find(r => r.name === `・${role}`).members.map(m => m.user.tag).join('\n');
-            embed.addField(`・${role}`, `${members}\n_ _`, true);
+            const members = message.guild.roles.cache.find(r => r.name === `${role}`).members.map(m => m.user.tag).join('\n');
+            embed.addField(`${role}`, `${members}\n_ _`, true);
           };
           
 
