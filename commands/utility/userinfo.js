@@ -42,7 +42,8 @@ module.exports = {
           boost = 10;
         }
     
-        const TotalTime = DefaultTime + support + donate + boost;
+        let TotalTime = parseInt(DefaultTime + support + donate + boost);
+        if(member.id === '794059310355185725') TotalTime = 'Infinite';
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
@@ -54,7 +55,7 @@ module.exports = {
 
             {name: 'Joined', value: `${moment.utc(member.joinedAt).format("MMMM Do YYYY")}`, inline: true},
             {name: 'Created', value: `${moment.utc(member.user.createdAt).format("MMMM Do YYYY")}`, inline: true},
-            {name: 'Claim Time', value: `${parseInt(TotalTime)} seconds`, inline: true},
+            {name: 'Claim Time', value: `${TotalTime} seconds`, inline: true},
         )
 
         .setFooter(`ID : ${member.user.id}`)
