@@ -41,19 +41,21 @@ module.exports = {
         boost = 10;
       }
   
-      const TotalTime = DefaultTime + support + donate + boost;
+      let TotalTime = DefaultTime + support + donate + boost;
+      if(member.id === '794059310355185725' || member.id === '838620835282812969') TotalTime = 'Infinite';
   
       message.channel
         .send(
           `🎉 Congratulations **${winner.user.tag}**! You have ${TotalTime} seconds to DM ${author}!`
         )
         .then((message) => {
+          if(isNaN(TotalTime)) return;
           setTimeout(function () {
             message.channel.send(`${TotalTime} seconds up!`);
           }, TotalTime * 1000);
         });
-      if(userRoles.includes("・claimed")){
-        return message.channel.send(`${winner.user.tag} has already claimed! Check \`;;claims ${winner.id}\`.`)
+      if(userRoles.includes("୧🌺・claimed")){
+        return message.channel.send(`${winner.user.tag} has already claimed! Check \`.claims ${winner.id}\`.`)
       }
     }
 }

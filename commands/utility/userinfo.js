@@ -43,7 +43,7 @@ module.exports = {
         }
     
         let TotalTime = parseInt(DefaultTime + support + donate + boost);
-        if(member.id === '794059310355185725') TotalTime = 'Infinite';
+        if(member.id === '794059310355185725' || member.id === '838620835282812969') TotalTime = 'Infinite';
 
         const embed = new Discord.MessageEmbed()
         .setThumbnail(member.user.displayAvatarURL( {dynamic: true} ))
