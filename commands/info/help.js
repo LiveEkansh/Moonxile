@@ -60,10 +60,12 @@ module.exports = {
                     .setColor(rColor)
                 return message.lineReplyNoMention(embed);
             } else {
-                const command = client.commands.get(args[0].toLowerCase()) ||
-                                client.commands.find(
-                                    (c) => c.aliases && c.aliases.includes(args[0]).toLowerCase()
-                                );
+                const command = client.commands.get(args[0].toLowerCase()) || client.commands.get(client.aliases.get(args[0].toLowerCase()));
+                                //client.commands.find(
+                                  //  (c) => c.aliases && c.aliases.includes(args[0]).toLowerCase()
+                                // ); 
+                                
+                                /** client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));*/
                 
             if (!command) {
                      const embed = new MessageEmbed()
