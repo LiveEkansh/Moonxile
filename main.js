@@ -19,6 +19,7 @@ mongoose.connect(mongo, {
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.snipes = new Collection();
 client.categories = readdirSync("./commands/");
 ["command"].forEach((handler) =>{
     require(`./handlers/${handler}`)(client)
@@ -134,6 +135,20 @@ client.on('guildMemberAdd', async (member) =>{
 
     // welcome.send(`<@!${member.user.id}>`, embed) 
 });
+
+client.on('messageDelete', message => {
+    let snipes = client.snipes.get(message.channel.id) || [];
+    if(snipes.length > 10) snipes = snipes.slice(0, 9);
+
+    snipes.unshift({
+        content: message.content,
+        member: message.member,
+        image: message.attachments.first() ? message.attachments.first().proxyURL : null,
+        time: Date.now()
+    });
+
+    client.snipes.set(message.channel.id, snipes);
+})
 
 client.login(token)
 
