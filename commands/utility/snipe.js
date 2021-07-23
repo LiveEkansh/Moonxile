@@ -21,7 +21,7 @@ module.exports = {
 
         const { content, image, member, time } = target;
 
-        message.channel.lineReplyNoMention(new MessageEmbed()
+        message.lineReplyNoMention(new MessageEmbed()
             .setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
             .setDescription(content)
             .setImage(image)
