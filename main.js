@@ -27,6 +27,7 @@ client.categories = readdirSync("./commands/");
 
 client.on('ready', () => {
     console.log(`${client.user.username} ✅`);
+    client.user.setStatus('idle');
     client.user.setActivity(`${prefix}help`, { type: 'LISTENING' });
 });
 
@@ -49,7 +50,7 @@ client.on('message', message =>{
         if(message.author.id === '716390085896962058') return;
         client.commands.get('gbotg').execute(client, message, Discord);
     };
-    if(message.content === '<@!859270085403344976>') return message.lineReply(`My prefix is \`${prefix}\`.`)
+    if(message.content === '<@!857984815579136030>') return message.lineReply(`My prefix is \`${prefix}\`.`)
     if(
         message.author.bot ||
         !message.guild || 
