@@ -27,8 +27,8 @@ client.categories = readdirSync("./commands/");
 
 client.on('ready', () => {
     console.log(`${client.user.username} ✅`);
-    client.user.setStatus('idle');
-    client.user.setActivity(`${prefix}help`, { type: 'LISTENING' });
+    client.user.setPresence({ activity: { name: `${prefix}help`, type: 'LISTENING' }, status: 'idle' });
+    // client.user.setPresence({ activity: { name: 'with discord.js' }, status: 'idle' })
 });
 
 client.on('message', message =>{
