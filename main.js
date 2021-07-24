@@ -25,6 +25,8 @@ client.categories = readdirSync("./commands/");
     require(`./handlers/${handler}`)(client)
 });
 
+const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 client.on('ready', () => {
     console.log(`${client.user.username} ✅`);
     client.user.setPresence({ activity: { name: `${prefix}help`, type: 'LISTENING' }, status: 'idle' });
@@ -32,6 +34,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message =>{
+
     if(message.content.startsWith('!greroll') 
     || message.content.startsWith('g!reroll') 
     || message.content.startsWith('q!reroll') 
@@ -51,13 +54,19 @@ client.on('message', message =>{
         client.commands.get('gbotg').execute(client, message, Discord);
     };
     if(message.content === '<@!857984815579136030>') return message.lineReply(`My prefix is \`${prefix}\``)
+
+    const prefixRegex = new RegExp(`^(<@!?${client.users.id}>|${escapeRegex(prefix)})\\s*`);
+    if(!prefixRegex.test(message.content)) return;
+
+    const [, matchedPrefix] = message.content.match(prefixRegex);
+
     if(
         message.author.bot ||
         !message.guild || 
-        !message.content.startsWith(prefix) 
+        !message.content.startsWith(matchedPrefix) 
     ) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(matchedPrefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
     const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
