@@ -8,6 +8,9 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        message.lineReplyNoMention(`${client.ws.ping} ms`)
+        const pingMsg = await message.lineReplyNoMention(`Pinging...`)
+        .then(msg => {
+            msg.edit(`**Discord Latency**: **\`${(pingMsg.createdTimestamp) - (msg.createdTimestamp)}ms\`**\n**API Latency**: **\`${client.ws.ping}ms\`**`)
+        })
     }
 }
