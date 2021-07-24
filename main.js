@@ -5,7 +5,7 @@ require('discord-reply')
 const client = new Client();
 
 const config = require('./config.json')
-const prefix = config.prefix;
+const prefix = config.prefix || `<@!857984815579136030> `;
 const token = process.env.TOKEN;
 const mongo = process.env.MONGO;
 const Schema = require('./models/greet');
@@ -57,7 +57,7 @@ client.on('message', message =>{
         !message.content.startsWith(prefix) 
     ) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length || `<@!857984815579136030> `).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
     const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
