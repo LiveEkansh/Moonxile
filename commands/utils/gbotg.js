@@ -15,6 +15,7 @@ module.exports = {
       let donates;
   
       let winner = message.mentions.members.first();
+      if(!winner) return;
 
       await db.findOne({ guildid: message.guild.id, user: winner.user.id }, async(err, data)=>{
         if(data){
