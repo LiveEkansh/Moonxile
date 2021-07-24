@@ -5,7 +5,7 @@ require('discord-reply')
 const client = new Client();
 
 const config = require('./config.json')
-const prefix = config.prefix || `<@!${client.user.id}> `;
+const prefix = config.prefix || `<@!857984815579136030> `;
 const token = process.env.TOKEN;
 const mongo = process.env.MONGO;
 const Schema = require('./models/greet');
