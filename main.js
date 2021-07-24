@@ -5,7 +5,7 @@ require('discord-reply')
 const client = new Client();
 
 const config = require('./config.json')
-const prefix = config.prefix || `<@!857984815579136030> `;
+const prefix = config.prefix;
 const token = process.env.TOKEN;
 const mongo = process.env.MONGO;
 const Schema = require('./models/greet');
@@ -50,7 +50,7 @@ client.on('message', message =>{
         if(message.author.id === '716390085896962058') return;
         client.commands.get('gbotg').execute(client, message, Discord);
     };
-    if(message.content === '<@!857984815579136030>') return message.lineReply(`My prefix is \`${prefix}\`.`)
+    if(message.content === '<@!857984815579136030>') return message.lineReply(`My prefix is \`${prefix}\``)
     if(
         message.author.bot ||
         !message.guild || 
