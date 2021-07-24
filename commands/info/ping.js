@@ -2,6 +2,7 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'ping',
+    description: 'Bot\'s latency',
     /**
     * @param {Client} client,
     * @param {Message} message,
