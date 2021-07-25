@@ -25,7 +25,7 @@ client.categories = readdirSync("./commands/");
     require(`./handlers/${handler}`)(client)
 });
 
-client.dev = '838620835282812969';
+client.dev = '838620835282812969'; // @Nin#1111
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 client.on('ready', () => {
