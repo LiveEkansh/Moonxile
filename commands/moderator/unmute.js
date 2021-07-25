@@ -11,7 +11,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_ROLES')){
+        if(!message.member.hasPermission('MANAGE_ROLES') && message.author.id !== client.dev){
             return message.lineReply('Missing Permissions `MANAGE_ROLES`.')
         };
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

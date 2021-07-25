@@ -12,7 +12,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('Missing Permissions `ADMINISTRATOR`');
+        if(!message.member.hasPermission('ADMINISTRATOR') && message.author.id !== client.dev) return message.reply('Missing Permissions `ADMINISTRATOR`');
         const list = args[0];
         if(!list) return message.lineReply(`Incorrect Usage, \`${prefix}list <supporters|donators|boosters>\``);
         if(list.toLowerCase() === 'supporters'){

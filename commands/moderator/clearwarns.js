@@ -12,7 +12,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_ROLES') && !message.member.roles.cache.find(r => r.name === '・trial moderator')){
+        if(!message.member.hasPermission('MANAGE_ROLES') && message.author.id !== client.dev && !message.member.roles.cache.find(r => r.name === '・trial moderator')){
             return message.lineReplyNoMention('Must have `@・trial moderator` or above to execute this command')
         };
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

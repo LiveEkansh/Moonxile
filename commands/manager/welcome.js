@@ -12,7 +12,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_CHANNELS')){
+        if(!message.member.hasPermission('MANAGE_CHANNELS') && message.author.id !== client.dev){
             return message.lineReply('Missing Permissions `MANAGE_CHANNELS`.')
         };
         const ch = message.mentions.channels.first();

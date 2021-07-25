@@ -10,7 +10,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('ADMINISTRATOR')){
+        if(!message.member.hasPermission('ADMINISTRATOR') && message.author.id !== client.dev){
             return message.lineReply('Missing Permissions `ADMINISTRATOR`.')
         };
         const roles = [

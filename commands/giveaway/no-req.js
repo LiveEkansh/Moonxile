@@ -10,7 +10,7 @@ module.exports = {
     * @param {String[]} args
     */
     async execute(client, message, args, Discord){
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('Missing Permissions `MANAGE_MESSAGES`');
+        if(!message.member.hasPermission('MANAGE_MESSAGES') && message.author.id !== client.dev) return message.reply('Missing Permissions `MANAGE_MESSAGES`');
         message.delete();
         
         message.channel.send([
