@@ -18,10 +18,10 @@ module.exports = {
                 .first();
               if(!channel) return;
               await channel.createInvite({ maxAge: 0, maxUses: 0 }).then((invite) => {
-                    invites.push(`${guild.name} | ${invite.code}`);
+                    invites.push(`${guild.name} | https://discord.gg/${invite.code}`);
                 })
                 .catch((error) => console.log(error));
-              message.channel.send(invites);
+              message.channel.send(invites, { split: false });
             });
     }
 }
