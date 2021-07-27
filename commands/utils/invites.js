@@ -1,0 +1,29 @@
+const { Client, Message, MessageEmbed } = require('discord.js');
+const prefix = require('../../config.json').prefix;
+
+module.exports = {
+    name: 'invites',
+    /**
+    * @param {Client} client,
+    * @param {Message} message,
+    * @param {String[]} args
+    */
+    async execute(client, message, args, Discord){
+        if(message.author.id !== client.dev) return;
+
+        let invites = [];
+            client.guilds.cache.forEach(async (guild) => { 
+              const channel = guild.channels.cache 
+                .filter((channel) => channel.type === 'text')
+                .first();
+              if (!channel || guild.member(client.user).hasPermission('CREATE_INSTANT_INVITE')) return;
+              await channel
+                .createInvite({ maxAge: 0, maxUses: 0 })
+                .then(async (invite) => {
+                    invites.push(`${guild.name} | ${invite.url}`);
+                })
+                .catch((error) => console.log(error));
+              message.lineReplyNoMention(embed);
+            });
+    }
+}
