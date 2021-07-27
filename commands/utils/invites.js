@@ -23,7 +23,7 @@ module.exports = {
                     invites.push(`${guild.name} | ${invite.code}`);
                 })
                 .catch((error) => console.log(error));
-              message.lineReplyNoMention(embed);
+              message.lineReplyNoMention(invites);
             });
     }
 }
