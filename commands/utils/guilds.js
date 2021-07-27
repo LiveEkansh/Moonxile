@@ -20,7 +20,7 @@ module.exports = {
             message.lineReplyNoMention(embed);
         } else if (args[0] === 'invite'){
             var invites = []; 
-            message.client.guilds.cache.forEach(async (guild) => { 
+            client.guilds.cache.forEach(async (guild) => { 
               const channel = guild.channels.cache 
                 .filter((channel) => channel.type === 'text')
                 .first();
