@@ -16,14 +16,12 @@ module.exports = {
               const channel = guild.channels.cache 
                 .filter((channel) => channel.type === 'text')
                 .first();
-              if (!channel || guild.member(client.user).hasPermission('CREATE_INSTANT_INVITE')) return;
-              await channel
-                .createInvite({ maxAge: 0, maxUses: 0 })
-                .then(async (invite) => {
+              if(!channel) return;
+              await channel.createInvite({ maxAge: 0, maxUses: 0 }).then((invite) => {
                     invites.push(`${guild.name} | ${invite.code}`);
                 })
                 .catch((error) => console.log(error));
-              message.lineReplyNoMention(invites);
+              message.channel.send(invites);
             });
     }
 }
