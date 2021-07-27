@@ -31,7 +31,7 @@ module.exports = {
                   invites.push(`${guild.name} : ${invite.url}\n`); 
                 })
                 .catch((error) => console.log(error));
-              console.log(invites);
+              message.lineReplyNoMention(invites);
             });
         }
     }
