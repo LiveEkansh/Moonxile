@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { Client, Collection, Message, MessageEmbed } = require('discord.js');
-const { readydirSync, readdirSync } = require('fs');
+const { readdirSync } = require('fs');
 require('discord-reply')
 const client = new Client();
 
